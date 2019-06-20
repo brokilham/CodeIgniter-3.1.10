@@ -133,3 +133,5 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => 'first');
 */
 $autoload['model'] = array();
+$autoload['helper'] = array('url');
+$config['base_url'] = 'http://localhost:8012/abdul/CodeIgniter-3.1.10/CodeIgniter-3.1.10/';
