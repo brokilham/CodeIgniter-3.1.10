@@ -56,20 +56,41 @@ class t_master_skala_fuzzy_model extends CI_Model
         ) AS t_rec", "t_tfn.IdLinguistik = t_rec.IdLinguistik", "left");
 
         $this->db->join("t_master_himpunan_linguistik","t_tfn.IdLinguistik =  t_master_himpunan_linguistik.Id", "left");
-        //$query = $this->db->get();
-
+        
         return $this->db->get()->result();
 
-        // Produces:
-        // SELECT * FROM blogs JOIN comments ON comments.id = blogs.id
-
-        //Multiple function calls can be made if you need several joins in one query.
-
-        //If you need a specific type of JOIN you can specify it via the third parameter of the function. Options are: left, right, outer, inner, left outer, and right outer.
-
-
-        //$this->db->join('comments', 'comments.id = blogs.id', 'left');
-        // Produces: LEFT JOIN comments ON comments.id = blogs.id
+        // complete query
+        /*
+        SELECT
+            `t_tfn`.`VALUE` AS `value_tfn`,
+            `t_rec`.`VALUE` AS `value_rec`,
+            `t_master_himpunan_linguistik`.`Deskripsi`,
+            `t_tfn`.`Low` AS `tfn_low`,
+            `t_tfn`.`Medium` AS `tfn_medium`,
+            `t_tfn`.`Up` AS `tfn_up`,
+            `t_rec`.`Low` AS `rec_low`,
+            `t_rec`.`Medium` AS `rec_medium`,
+            `t_rec`.`Up` AS `rec_up`
+        FROM
+            (
+                SELECT
+                    *
+                FROM
+                    t_master_skala_fuzzy
+                WHERE
+                    keterangan = 'TFN'
+            ) AS t_tfn
+        JOIN (
+            SELECT
+                *
+            FROM
+                t_master_skala_fuzzy
+            WHERE
+                keterangan = 'REC'
+        ) AS t_rec ', ' t_tfn.IdLinguistik = t_rec.IdLinguistik USING (`left`)
+        LEFT JOIN `t_master_himpunan_linguistik` ON `t_tfn`.`IdLinguistik` = `t_master_himpunan_linguistik`.`Id`
+        
+        */
     }
 
     /*public function getAll()
