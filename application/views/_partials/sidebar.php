@@ -23,6 +23,12 @@
                 <i class="material-icons">person</i>
             <p>Master Kriteria</p>
             </a>
+        </li>  
+        <li class="nav-item ">
+            <a class="nav-link" href="./MstrSkalaFuzzy">
+                <i class="material-icons">person</i>
+            <p>Master Skala Fuzzy</p>
+            </a>
         </li>           
     </ul>
     </div>
