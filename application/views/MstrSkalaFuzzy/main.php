@@ -40,21 +40,44 @@ defined('BASEPATH') OR exit('No direct script access allowed');
                   <div class="table-responsive">
                     <table class="table">
                       <thead class="text-primary">
-                        <th>
-                          Intensitas Kepentingan AHP
-                        </th>
-                        <th>
-                          Pasangan
-                        </th> 
-                        <th>
-                          Himpunan Linguistik
-                        </th> 
-                        <th>
-                          Tringular fuzzy number(TFN)
-                        </th>  
-                        <th>
-                          Reciprocal Kebalikan
-                        </th>                       
+                       <tr>
+                         <th rowspan="2">
+                            Intensitas Kepentingan AHP
+                          </th>
+                          <th rowspan="2">
+                            Pasangan
+                          </th> 
+                          <th rowspan="2">
+                            Himpunan Linguistik
+                          </th> 
+                          <th colspan="3">
+                            Tringular fuzzy number(TFN)
+                          </th>  
+                          <th colspan="3">
+                            Reciprocal Kebalikan
+                          </th>
+                       </tr>
+                       <tr>
+                          <th >
+                            L
+                          </th> 
+                          <th>
+                            M
+                          </th>  
+                          <th>
+                            U
+                          </th>
+                          <th >
+                            L
+                          </th> 
+                          <th>
+                            M
+                          </th>  
+                          <th>
+                            U
+                          </th>
+                       </tr>
+                                               
                       </thead>
                       <tbody>
                         <?php foreach ($mstr_skala_fuzzys as $mstr_skala_fuzzy): ?>
