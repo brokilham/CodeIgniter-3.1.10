@@ -16,4 +16,32 @@ class MstrKriteriaController extends CI_Controller {
 		$data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
         $this->load->view('MstrKriteria/main',$data);
 	}
+
+	public function add_form()
+	{
+	    $this->load->view('MstrKriteria/add');
+	}
+
+	public function add_action()
+	{
+
+
+	}
+
+	public function edit_form()
+	{
+	    $this->load->view('MstrKriteria/edit');
+	}
+
+	public function edit_action()
+	{
+
+
+	}
+
+	public function delete_action()
+	{
+
+
+	}
 }

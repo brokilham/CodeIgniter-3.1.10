@@ -15,4 +15,32 @@ class MstrAlternatifController extends CI_Controller {
 	{   $data["mstr_alternatifs"] = $this->t_master_alternatif_model->getAll();
         $this->load->view('MstrAlternatif/main',$data);
 	}
+
+	public function add_form()
+	{
+	    $this->load->view('MstrAlternatif/add');
+	}
+
+	public function add_action()
+	{
+
+
+	}
+
+	public function edit_form()
+	{
+	    $this->load->view('MstrAlternatif/edit');
+	}
+
+	public function edit_action()
+	{
+
+
+	}
+
+	public function delete_action()
+	{
+
+
+	}
 }

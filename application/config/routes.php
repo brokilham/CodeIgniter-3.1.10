@@ -55,5 +55,10 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['MstrAlternatif'] = 'MstrAlternatifController/main';
+$route['MstrAlternatif_add'] = 'MstrAlternatifController/add_form';
+$route['MstrAlternatif_edit'] = 'MstrAlternatifController/edit_form';
+
 $route['MstrKriteria'] = 'MstrKriteriaController/main';
+$route['MstrKriteria_add'] = 'MstrKriteriaController/add_form';
+$route['MstrKriteria_edit'] = 'MstrKriteriaController/edit_form';
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
