@@ -55,10 +55,13 @@ $route['translate_uri_dashes'] = FALSE;
 
 
 $route['MstrAlternatif'] = 'MstrAlternatifController/main';
-$route['MstrAlternatif_add'] = 'MstrAlternatifController/add_form';
-$route['MstrAlternatif_edit'] = 'MstrAlternatifController/edit_form';
+$route['MstrAlternatif/add'] = 'MstrAlternatifController/add';
+$route['MstrAlternatif/edit/(:any)'] = 'MstrAlternatifController/edit/$1';
+$route['MstrAlternatif/delete/(:any)'] = 'MstrAlternatifController/delete/$1';
 
-$route['MstrKriteria'] = 'MstrKriteriaController/main';
-$route['MstrKriteria_add'] = 'MstrKriteriaController/add_form';
-$route['MstrKriteria_edit'] = 'MstrKriteriaController/edit_form';
+$route['MstrKriteria'] = 'MstrKriteriaController'; // sudah jalan
+$route['MstrKriteria/add'] = 'MstrKriteriaController/add'; // sudah jalan
+$route['MstrKriteria/edit/(:any)'] = 'MstrKriteriaController/edit/$1';
+$route['MstrKriteria/delete/(:any)'] = 'MstrKriteriaController/delete/$1'; //sudah jalan
+
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
