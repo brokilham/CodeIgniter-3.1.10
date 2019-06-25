@@ -54,14 +54,17 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['MstrAlternatif'] = 'MstrAlternatifController';
-$route['MstrAlternatif/add'] = 'MstrAlternatifController/add';
-$route['MstrAlternatif/edit/(:any)'] = 'MstrAlternatifController/edit/$1';
-$route['MstrAlternatif/delete/(:any)'] = 'MstrAlternatifController/delete/$1';
+$route['MstrAlternatif'] = 'MstrAlternatifController'; // sudah jalan
+$route['MstrAlternatif/add'] = 'MstrAlternatifController/add'; // sudah jalan
+$route['MstrAlternatif/edit/(:any)'] = 'MstrAlternatifController/edit/$1'; // sudah jalan
+$route['MstrAlternatif/delete/(:any)'] = 'MstrAlternatifController/delete/$1'; // sudah jalan
 
 $route['MstrKriteria'] = 'MstrKriteriaController'; // sudah jalan
 $route['MstrKriteria/add'] = 'MstrKriteriaController/add'; // sudah jalan
-$route['MstrKriteria/edit/(:any)'] = 'MstrKriteriaController/edit/$1';
+$route['MstrKriteria/edit/(:any)'] = 'MstrKriteriaController/edit/$1'; // sudah jalan
 $route['MstrKriteria/delete/(:any)'] = 'MstrKriteriaController/delete/$1'; //sudah jalan
+
+$route['BobotKriteria'] = 'BobotKriteriaController'; // on progress
+
 
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
