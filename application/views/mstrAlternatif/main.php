@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
 										<li class="m-portlet__nav-item">
-											<a href="./MstrAlternatif_add" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+											<a href="<?php echo site_url('/MstrAlternatif/add') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
@@ -108,28 +108,28 @@ License: You must have a valid license purchased only from themeforest(the above
 										</tr>
 									</thead>
 									<tbody>		
-                    <?php $no = 1;
-                        foreach ($mstr_alternatifs as $mstr_alternatif): ?>
-                        <tr>
-                          <td>
-                            <?php echo $no++;?>
-                          </td>
-                          <td>
-                            <?php echo $mstr_alternatif->Id ?>
-                          </td>
-                          <td>
-                            <?php echo $mstr_alternatif->Description ?>
-                          </td> 
-                          <td>
-                            <a href="./MstrAlternatif_edit" class="btn btn-warning m-btn m-btn--icon btn-lg m-btn--icon-only">
-															<i class="fa fa-edit"></i>
-														</a>
-                            <a href="#" class="btn btn-danger m-btn m-btn--icon btn-lg m-btn--icon-only">
-															<i class="fa fa-trash"></i>
-														</a>
-                          </td>                       
-                        </tr>  
-                    <?php endforeach; ?>  								
+										<?php $no = 1;
+											foreach ($mstr_alternatifs as $mstr_alternatif): ?>
+											<tr>
+											<td>
+												<?php echo $no++;?>
+											</td>
+											<td>
+												<?php echo $mstr_alternatif->Id ?>
+											</td>
+											<td>
+												<?php echo $mstr_alternatif->Description ?>
+											</td> 
+											<td>
+												<a href="<?php echo site_url('/MstrAlternatif/edit/'.$mstr_alternatif->Id) ?>" class="btn btn-warning m-btn m-btn--icon btn-lg m-btn--icon-only">
+																				<i class="fa fa-edit"></i>
+																			</a>
+												<a href="<?php echo site_url('/MstrAlternatif/delete/'.$mstr_alternatif->Id) ?>" class="btn btn-danger m-btn m-btn--icon btn-lg m-btn--icon-only">
+																				<i class="fa fa-trash"></i>
+																			</a>
+											</td>                       
+											</tr>  
+										<?php endforeach; ?>  								
 									</tbody>
 								</table>
 							</div>

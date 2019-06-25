@@ -54,7 +54,7 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
 
-$route['MstrAlternatif'] = 'MstrAlternatifController/main';
+$route['MstrAlternatif'] = 'MstrAlternatifController';
 $route['MstrAlternatif/add'] = 'MstrAlternatifController/add';
 $route['MstrAlternatif/edit/(:any)'] = 'MstrAlternatifController/edit/$1';
 $route['MstrAlternatif/delete/(:any)'] = 'MstrAlternatifController/delete/$1';

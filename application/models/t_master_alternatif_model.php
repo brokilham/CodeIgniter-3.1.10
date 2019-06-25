@@ -24,38 +24,41 @@ class t_master_alternatif_model extends CI_Model
         return $this->db->get($this->_table)->result();
     }
 
-    /*public function getAll()
-    {
-        return $this->db->get($this->_table)->result();
-    }
-    
     public function getById($id)
     {
-        return $this->db->get_where($this->_table, ["product_id" => $id])->row();
+        return $this->db->get_where($this->_table, ["Id" => $id])->row();
+    }
+
+    public function getMaxId()
+    {
+        $this->db->select("MAX(id) AS Id");
+        $this->db->from($this->_table);
+        return $this->db->get()->result();
+
+        // complete query
+        // SELECT MAX(id) FROM `t_master_alternatif`;
     }
 
     public function save()
     {
         $post = $this->input->post();
-        $this->product_id = uniqid();
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
+        $this->Id = $post["Id"];
+        $this->Description = $post["Description"];
         $this->db->insert($this->_table, $this);
     }
 
     public function update()
     {
         $post = $this->input->post();
-        $this->product_id = $post["id"];
-        $this->name = $post["name"];
-        $this->price = $post["price"];
-        $this->description = $post["description"];
-        $this->db->update($this->_table, $this, array('product_id' => $post['id']));
+        $this->Id = $post["Id"];
+        $this->Description = $post["Description"];
+        $this->db->update($this->_table, $this, array('Id' => $post['Id']));
     }
 
     public function delete($id)
     {
-        return $this->db->delete($this->_table, array("product_id" => $id));
-    }*/
+        return $this->db->delete($this->_table, array("Id" => $id));
+    }
+
+    
 }

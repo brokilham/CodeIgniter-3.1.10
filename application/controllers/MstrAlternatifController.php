@@ -7,40 +7,58 @@ class MstrAlternatifController extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->database();  
-        $this->load->model("t_master_alternatif_model");
+		$this->load->model("t_master_alternatif_model");
+		$this->load->library('form_validation');
     }
 
 
-	public function main()
+	public function index()
 	{   $data["mstr_alternatifs"] = $this->t_master_alternatif_model->getAll();
         $this->load->view('MstrAlternatif/main',$data);
 	}
 
-	public function add_form()
+	public function add()
 	{
-	    $this->load->view('MstrAlternatif/add');
+		$t_master_alternatif = $this->t_master_alternatif_model;
+		$validation = $this->form_validation;
+        $validation->set_rules($t_master_alternatif->rules());
+
+        if ($validation->run()) {
+			$t_master_alternatif->save();	
+			redirect(site_url('MstrAlternatif'));		
+		}
+
+		$data["last_id"] = $this->t_master_alternatif_model->getMaxId();
+		$this->load->view('MstrAlternatif/add',$data);
 	}
 
-	public function add_action()
+	public function edit($id = null)
 	{
+		if (!isset($id)) redirect('MstrAlternatif');
+       
+        $t_master_alternatif = $this->t_master_alternatif_model;
+        $validation = $this->form_validation;
+        $validation->set_rules($t_master_alternatif->rules());
 
+        if ($validation->run()) {
+            $t_master_alternatif->update();
+            redirect(site_url('MstrAlternatif'));		
+        }
 
+        $data["mstr_alternatif"] = $t_master_alternatif->getById($id);
+        if (!$data["mstr_alternatif"]) show_404();
+        
+        $this->load->view("MstrAlternatif/edit", $data);
 	}
 
-	public function edit_form()
+	public function delete($id = null)
 	{
-	    $this->load->view('MstrAlternatif/edit');
-	}
+		if (!isset($id)) show_404();
+			
+			if ($this->t_master_alternatif_model->delete($id)) {
 
-	public function edit_action()
-	{
-
-
-	}
-
-	public function delete_action()
-	{
-
+				redirect(site_url('MstrAlternatif'));
+			}
 
 	}
 }

@@ -98,19 +98,19 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 								<!--begin::Form-->
-								<form class="m-form m-form--fit m-form--label-align-right">
+								<form action="<?php echo base_url('/MstrAlternatif/edit/'.$mstr_alternatif->Id) ?>" method="post" class="m-form m-form--fit m-form--label-align-right">
 									<div class="m-portlet__body">
 										<div class="form-group m-form__group">
-											<label for="exampleInputEmail1">
+											<label >
 												Kode
 											</label>
-											<input type="text" class="form-control m-input m-input--square" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Kode Kriteria">										
+											<input type="text" class="form-control m-input m-input--square" id="Id" Name="Id"  placeholder="Masukkan Kode Alternatif" value="<?php echo $mstr_alternatif->Id?>" readonly>										
 										</div>
 										<div class="form-group m-form__group">
-											<label for="exampleInputPassword1">
-												Nama Kriteria
+											<label >
+												Nama Alternatif
 											</label>
-											<input type="text" class="form-control m-input m-input--square" id="exampleInputPassword1" placeholder="Masukkan Nama Kriteria">
+											<input type="text" class="form-control m-input m-input--square"  Id="Description" name= "Description" placeholder="Masukkan Nama Alternatif" value="<?php echo $mstr_alternatif->Description?>">
 										</div>										
 									</div>
 									<div class="m-portlet__foot m-portlet__foot--fit">
@@ -121,7 +121,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<button type="reset" class="btn btn-warning">
 												Reset
 											</button>
-											<a href="./MstrAlternatif" class="btn btn-danger">Kembali</a>
+											<a href="<?php echo site_url('/MstrAlternatif') ?>" class="btn btn-danger">Kembali</a>
 										</div>
 									</div>
 								</form>
