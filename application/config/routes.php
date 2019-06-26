@@ -65,6 +65,6 @@ $route['MstrKriteria/edit/(:any)'] = 'MstrKriteriaController/edit/$1'; // sudah 
 $route['MstrKriteria/delete/(:any)'] = 'MstrKriteriaController/delete/$1'; //sudah jalan
 
 $route['BobotKriteria'] = 'BobotKriteriaController'; // on progress
-
+$route['BobotKriteria/edit'] = 'BobotKriteriaController/edit'; // on progress
 
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';

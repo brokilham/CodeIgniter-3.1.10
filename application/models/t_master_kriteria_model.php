@@ -39,6 +39,13 @@ class t_master_kriteria_model extends CI_Model
         // SELECT MAX(id) FROM `t_master_kriteria`;
     }
 
+    public function getCount()
+    {
+        $this->db->select("Count(Id) AS count_data");
+        $this->db->from($this->_table);
+        return $this->db->get()->result();
+    }
+
     public function save()
     {
         $post = $this->input->post();

@@ -74,10 +74,9 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="m-portlet__head-title">
 												<span class="m-portlet__head-icon m--hide">
 													<i class="flaticon-statistics"></i>
-												</span>
-												
+												</span>											
 												<h3 class="m-portlet__head-text">
-													Portlet sub title goes here
+													Berikut ini merupakan daftar data Nilai Fuzzy
 												</h3>											
 												<h2 class="m-portlet__head-label m-portlet__head-label--success">
 													<span>
@@ -90,21 +89,13 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="m-portlet__body">
 										<table class="table m-table ">											
 											<tbody>
-												<tr>													
+											 	<?php foreach($data_fuzzys as $data_fuzzy):?>
+												 <tr>													
 													<td>
-														item 1
+														<?php echo  $data_fuzzy->Deskripsi?>
 													</td>
 												</tr>
-												<tr>													
-													<td>
-														item 2
-													</td>
-												</tr>
-												<tr>													
-													<td>
-														item 3
-													</td>
-												</tr>												
+												<?php endforeach;?>																																		
 											</tbody>
 										</table>
 									</div>
@@ -119,10 +110,9 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="m-portlet__head-title">
 												<span class="m-portlet__head-icon m--hide">
 													<i class="flaticon-statistics"></i>
-												</span>
-												
+												</span>												
 												<h3 class="m-portlet__head-text">
-													Portlet sub title goes here
+													Berikut ini merupakan daftar data kriteria
 												</h3>											
 												<h2 class="m-portlet__head-label m-portlet__head-label--danger">
 													<span>
@@ -135,21 +125,13 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="m-portlet__body">
 										<table class="table m-table ">											
 											<tbody>
-												<tr>													
+												<?php foreach($data_kriterias as $data_kriteria):?>
+												 <tr>													
 													<td>
-														item 1
+														<?php echo  $data_kriteria->Description?>
 													</td>
 												</tr>
-												<tr>													
-													<td>
-														item 2
-													</td>
-												</tr>
-												<tr>													
-													<td>
-														item 3
-													</td>
-												</tr>												
+												<?php endforeach;?>												
 											</tbody>
 										</table>
 									</div>
@@ -164,10 +146,9 @@ License: You must have a valid license purchased only from themeforest(the above
 											<div class="m-portlet__head-title">
 												<span class="m-portlet__head-icon m--hide">
 													<i class="flaticon-statistics"></i>
-												</span>
-												
+												</span>												
 												<h3 class="m-portlet__head-text">
-													Portlet sub title goes here
+													Berikut ini merupakan daftar data alternatif
 												</h3>											
 												<h2 class="m-portlet__head-label m-portlet__head-label--accent">
 													<span>
@@ -180,21 +161,13 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="m-portlet__body">
 										<table class="table m-table ">											
 											<tbody>
-												<tr>													
+												<?php foreach($data_alternatifs as $data_alternatif):?>
+												 <tr>													
 													<td>
-														item 1
+														<?php echo  $data_alternatif->Description?>
 													</td>
 												</tr>
-												<tr>													
-													<td>
-														item 2
-													</td>
-												</tr>
-												<tr>													
-													<td>
-														item 3
-													</td>
-												</tr>												
+												<?php endforeach;?>												
 											</tbody>
 										</table>
 									</div>
