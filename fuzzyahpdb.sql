@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100130
 File Encoding         : 65001
 
-Date: 2019-06-26 20:19:20
+Date: 2019-07-02 19:16:31
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -23,7 +23,7 @@ CREATE TABLE `t_master_alternatif` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of t_master_alternatif
@@ -60,7 +60,7 @@ CREATE TABLE `t_master_kriteria` (
   `Id` int(11) NOT NULL AUTO_INCREMENT,
   `Description` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of t_master_kriteria
@@ -148,3 +148,19 @@ INSERT INTO `t_nilai_kriteria` VALUES ('63', '1', '5', '5');
 INSERT INTO `t_nilai_kriteria` VALUES ('64', '2', '5', '5');
 INSERT INTO `t_nilai_kriteria` VALUES ('65', '3', '5', '5');
 INSERT INTO `t_nilai_kriteria` VALUES ('66', '4', '5', '5');
+
+-- ----------------------------
+-- Table structure for t_user
+-- ----------------------------
+DROP TABLE IF EXISTS `t_user`;
+CREATE TABLE `t_user` (
+  `Id` int(11) NOT NULL AUTO_INCREMENT,
+  `Username` varchar(255) DEFAULT NULL,
+  `Password` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of t_user
+-- ----------------------------
+INSERT INTO `t_user` VALUES ('3', 'admin', 'fcea920f7412b5da7be0cf42b8c93759');
