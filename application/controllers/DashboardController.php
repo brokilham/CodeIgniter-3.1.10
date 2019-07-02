@@ -6,8 +6,7 @@ class DashboardController extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
-		
-		//$this->load->database();  	
+			
 		if($this->session->userdata('status') != "login"){
 			redirect(base_url("Login"));
 		}
