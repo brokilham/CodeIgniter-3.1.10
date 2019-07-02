@@ -7,7 +7,12 @@ class MstrKriteriaController extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
-		$this->load->database();  
+
+		//$this->load->database();  
+		if($this->session->userdata('status') != "login"){
+			redirect(base_url("Login"));
+		}
+	
 		$this->load->model("t_master_kriteria_model");
 		$this->load->model("t_nilai_kriteria_model");
 		$this->load->library('form_validation');
