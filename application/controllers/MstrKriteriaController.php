@@ -16,6 +16,7 @@ class MstrKriteriaController extends CI_Controller {
 	public function index()
 	{
 		$data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
+		$data["jumlah_data_kriteria"] = $this->t_master_kriteria_model->getCount();
         $this->load->view('MstrKriteria/main',$data);
 	}
 
