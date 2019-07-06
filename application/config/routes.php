@@ -71,3 +71,6 @@ $route['BobotAlternatif'] = 'BobotAlternatifController'; // on progress
 $route['BobotAlternatif/edit'] = 'BobotAlternatifController/edit'; // on progress
 
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
+
+
+// tes 123
