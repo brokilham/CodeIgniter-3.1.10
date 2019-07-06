@@ -7,14 +7,14 @@ class DashboardController extends CI_Controller {
     {
 		parent::__construct();
 		$this->load->database();  
-		$this->load->model("t_master_skala_fuzzy_model");
+		$this->load->model("t_master_himpunan_linguistik_model");
 		$this->load->model("t_master_kriteria_model");	
 		$this->load->model("t_master_alternatif_model");			
     }
 
 	public function index()
 	{   
-		$data["data_fuzzys"] = $this->t_master_skala_fuzzy_model->getAllHimpunanLinguistik();	
+		$data["data_himpunan_linguistiks"] = $this->t_master_himpunan_linguistik_model->getAllHimpunanLinguistik();	
 		$data["data_kriterias"] = $this->t_master_kriteria_model->getAll();	
 		$data["data_alternatifs"] = $this->t_master_alternatif_model->getAll();	
 		
