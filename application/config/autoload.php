@@ -58,8 +58,8 @@ $autoload['packages'] = array();
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-//$autoload['libraries'] = array();
 $autoload['libraries'] = array('database','session');
+
 /*
 | -------------------------------------------------------------------
 |  Auto-load Drivers
@@ -134,4 +134,4 @@ $autoload['language'] = array();
 */
 $autoload['model'] = array();
 $autoload['helper'] = array('url');
-$config['base_url'] = 'http://localhost:8012/abdul/CodeIgniter-3.1.10/CodeIgniter-3.1.10/';
+$config['base_url'] = 'http://localhost/fuzzyahp/';

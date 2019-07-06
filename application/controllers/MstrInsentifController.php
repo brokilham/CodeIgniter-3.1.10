@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class MstrKriteriaController extends CI_Controller {
+class MstrInsentifController extends CI_Controller {
 
 
 	public function __construct()
@@ -10,12 +10,13 @@ class MstrKriteriaController extends CI_Controller {
 		$this->load->database();  
 		$this->load->model("t_master_kriteria_model");
 		$this->load->model("t_nilai_kriteria_model");
+		$this->load->model("t_master_insentif_model");
 		$this->load->library('form_validation');
 		
     }
 	public function index()
 	{
-		$data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
+		$data["mstr_insentifs"] = $this->t_master_insentif_model->getAll();
         $this->load->view('MstrKriteria/main',$data);
 	}
 

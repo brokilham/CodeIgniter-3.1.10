@@ -93,13 +93,16 @@ License: You must have a valid license purchased only from themeforest(the above
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th>
+										 	<th bgcolor="yellow">
 										 	</th>
-											<?php 											
-											foreach ($mstr_kriterias as $mstr_kriteria):?>
-												<th>
-													<?php echo "K".$mstr_kriteria->Id ?>
-												</th>												
+											<?php 
+											$count_data2 = count($mstr_kriterias);
+											foreach($mstr_kriterias as $mstr_kriteria):?>
+												
+												<th bgcolor="#00ff80">
+													<?php echo "K".$mstr_kriteria->Id  ?>
+												</th>
+																				
 											<?php  endforeach; ?>																	
 										</tr>
 									</thead>
@@ -109,13 +112,13 @@ License: You must have a valid license purchased only from themeforest(the above
 											$idx_data_nilai =0;
 											foreach ($mstr_kriterias as $mstr_kriteria):?>
 												<tr>
-													<th>
+													<th bgcolor="#00ff80">
 														<?php echo "K".$mstr_kriteria->Id ?>
 													</th>
 													
-													<?php for($i = 0; $i<$count_data; $i++):?>											
+													<?php for($i = 0; $i < $count_data; $i++):?>											
 													<td>
-														<?php echo $nilai_kriterias[$idx_data_nilai]->IdTfn ?>
+														<?php echo $nilai_kriterias[$idx_data_nilai]->nilai_bobot_kriteria ?>
 													</td>
 													<?php $idx_data_nilai++; ?>
 													<?php endfor;?>	
@@ -126,6 +129,67 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 						</div>
 						<!-- END EXAMPLE TABLE PORTLET-->
+
+					</div>
+					<div class="m-content">					
+						<div class="m-portlet m-portlet--mobile">
+							<div class="m-portlet__head">
+								<div class="m-portlet__head-caption">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text">
+											Triangular Fuzzy Number
+										</h3>
+									</div>
+								</div>
+								<div class="m-portlet__head-tools">
+									
+								</div>							
+							</div>
+							<div class="m-portlet__body">
+								<!--begin: Datatable -->
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+									<thead>
+										<tr>
+								           	<th rowspan="2" bgcolor="yellow">Kriteria</th>
+								            <?php 
+											$count_data2 = count($mstr_kriterias);
+											foreach($mstr_kriterias as $mstr_kriteria):?>
+								            <th colspan="3" bgcolor="#00ff80"><?php echo "K".$mstr_kriteria->Id  ?></th>
+								         	<?php endforeach; ?>
+								         </tr>
+								         <tr>
+								         	<?php $count_data2 = count($mstr_kriterias);
+											foreach($mstr_kriterias as $mstr_kriteria):?>
+								         	<td><b>L</b></td>
+								         	<td><b>M</b></td>
+								         	<td><b>U</b></td>
+								         	<?php endforeach; ?>
+								         </tr>
+									</thead>
+									<tbody>		
+											<?php 
+											$count_data = count($mstr_kriterias)*3;
+											$idx_data_nilai =0;
+											foreach ($mstr_kriterias as $mstr_kriteria):?>
+												<tr>
+													<th bgcolor="#00ff80">
+														<?php echo "K".$mstr_kriteria->Id ?>
+													</th>
+													
+													<?php for($i = 0; $i < $count_data; $i++):?>											
+													<td>
+														<?php echo $nilai_kriterias_tfn[$idx_data_nilai]->nilai_bobot_tfn ?>
+													</td>
+													<?php $idx_data_nilai++; ?>
+													<?php endfor;?>	
+												</tr>												
+											<?php  endforeach;?>										 																	
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<!-- END EXAMPLE TABLE PORTLET-->
+						
 					</div>
 				</div>
 			</div>

@@ -57,10 +57,10 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
 								<h3 class="m-subheader__title ">
-									Data Kriteria
+									Bobot Alternatif
 								</h3>
 							</div>						
-						</div>
+						</div>						
 					</div>
 					<!-- END: Subheader -->
 					<div class="m-content">					
@@ -69,79 +69,69 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-caption">
 									<div class="m-portlet__head-title">
 										<h3 class="m-portlet__head-text">
-											Tabel Master Data Kriteria
+											Tabel Alternatif
 										</h3>
 									</div>
 								</div>
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
 										<li class="m-portlet__nav-item">
-											<a href="<?php echo site_url('/MstrKriteria/add') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
-													 Tambah
+														Ubah Nilai
 													</span>
 												</span>
 											</a>
 										</li>							
 									</ul>
-								</div>
+								</div>							
 							</div>
 							<div class="m-portlet__body">
 								<!--begin: Datatable -->
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-											<th>
-												No
-											</th>
-											<th>
-												Kode Kriteria
-											</th>
-											<th>
-												Nama Kriteria
-											</th>
-											<th>
-												Nilai Target
-											</th>
-											<th>
-												Aksi
-											</th>										
+										 	<th bgcolor="yellow">
+										 	</th>
+											<?php 
+											$count_data2 = count($mstr_kriterias);
+											foreach($mstr_kriterias as $mstr_kriteria):?>
+												
+												<th bgcolor="#00ff80">
+													<?php echo $mstr_kriteria->Description  ?>
+												</th>
+																				
+											<?php  endforeach; ?>																	
 										</tr>
 									</thead>
 									<tbody>		
-										<?php $no = 1;
-											foreach ($mstr_kriterias as $mstr_kriteria): ?>
-											<tr>
-											<td>
-												<?php echo $no++;?>
-											</td>
-											<td>
-												<?php echo "K".$mstr_kriteria->Id ?>
-											</td>
-											<td>
-												<?php echo $mstr_kriteria->Description ?>
-											</td>
-											<td>
-												<?php echo $mstr_kriteria->nilai_target ?>
-											</td>
-											<td>
-												<a href="<?php echo site_url('/MstrKriteria/edit/'.$mstr_kriteria->Id) ?>" class="btn btn-warning m-btn m-btn--icon btn-lg m-btn--icon-only">
-													<i class="fa fa-edit"></i>
-												</a>
-												<a href="<?php echo site_url('/MstrKriteria/delete/'.$mstr_kriteria->Id) ?>" class="btn btn-danger m-btn m-btn--icon btn-lg m-btn--icon-only">
-													<i class="fa fa-trash"></i>
-												</a>
-											</td>                       
-											</tr>  
-										<?php endforeach; ?>  								
+											<?php 
+											$count_data = count($mstr_kriterias);
+											$idx_data_nilai =0;
+											foreach ($mstr_alternatifs as $mstr_alternatif):?>
+												<tr>
+													<th bgcolor="#00ff80">
+														<?php echo $mstr_alternatif->Description ?>
+													</th>
+													
+													<?php for($i = 0; $i < $count_data; $i++):?>											
+													<td>
+														<?php echo $nilai_alternatifs[$idx_data_nilai]->pencapaian ?>
+													</td>
+													<?php $idx_data_nilai++; ?>
+													<?php endfor;?>	
+												</tr>												
+											<?php  endforeach;?>										 																	
 									</tbody>
 								</table>
 							</div>
 						</div>
 						<!-- END EXAMPLE TABLE PORTLET-->
+
 					</div>
+					
 				</div>
 			</div>
 			<!-- end:: Body -->

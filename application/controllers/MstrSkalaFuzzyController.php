@@ -7,11 +7,7 @@ class MstrSkalaFuzzyController extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
-		
-		if($this->session->userdata('status') != "login"){
-			redirect(base_url("Login"));
-		}
-	 
+		$this->load->database();  
 		$this->load->model("t_master_skala_fuzzy_model");
 		
     }

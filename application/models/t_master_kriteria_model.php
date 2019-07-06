@@ -59,6 +59,7 @@ class t_master_kriteria_model extends CI_Model
         $post = $this->input->post();
         $this->Id = $post["Id"];
         $this->Description = $post["Description"];
+        $this->Nilai_target = $post["Nilai_target"];
         $this->db->update($this->_table, $this, array('Id' => $post['Id']));
     }
 

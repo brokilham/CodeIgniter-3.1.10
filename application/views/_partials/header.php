@@ -953,8 +953,7 @@
 															</div>
 															<div class="m-card-user__details">
 																<span class="m-card-user__name m--font-weight-500">
-																	<?php echo $this->session->userdata("nama"); ?>
-																	<!--Mark Andre-->
+																	Mark Andre
 																</span>
 																<a href="" class="m-card-user__email m--font-weight-300 m-link">
 																	mark.andre@gmail.com
@@ -1022,7 +1021,7 @@
 																</li>
 																<li class="m-nav__separator m-nav__separator--fit"></li>
 																<li class="m-nav__item">
-																	<a href="<?php echo base_url('Logout'); ?>" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
+																	<a href="snippets/pages/user/login-1.html" class="btn m-btn--pill    btn-secondary m-btn m-btn--custom m-btn--label-brand m-btn--bolder">
 																		Logout
 																	</a>
 																</li>

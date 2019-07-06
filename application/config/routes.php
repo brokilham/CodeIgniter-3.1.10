@@ -67,14 +67,7 @@ $route['MstrKriteria/delete/(:any)'] = 'MstrKriteriaController/delete/$1'; //sud
 $route['BobotKriteria'] = 'BobotKriteriaController'; // on progress
 $route['BobotKriteria/edit'] = 'BobotKriteriaController/edit'; // on progress
 
+$route['BobotAlternatif'] = 'BobotAlternatifController'; // on progress
+$route['BobotAlternatif/edit'] = 'BobotAlternatifController/edit'; // on progress
+
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
-
-$route['MstrUser'] = 'MstrUserController'; // onprogress
-$route['MstrUser/add'] = 'MstrUserController/add'; // onprogress
-$route['MstrUser/edit/(:any)'] = 'MstrUserController/edit/$1'; // onprogress
-$route['MstrUser/delete/(:any)'] = 'MstrUserController/delete/$1'; // onprogress
-
-
-$route['Login'] = 'LoginController'; // sudah jalan
-$route['Login/action'] = 'LoginController/loginAction'; // sudah jalan 
-$route['Logout'] = 'LoginController/logout'; // sudah jalan

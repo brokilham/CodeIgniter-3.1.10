@@ -115,7 +115,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<?php echo $no++;?>
 											</td>
 											<td>
-												<?php echo $mstr_alternatif->Id ?>
+												<?php echo "A".$mstr_alternatif->Id ?>
 											</td>
 											<td>
 												<?php echo $mstr_alternatif->Description ?>
