@@ -72,136 +72,64 @@ License: You must have a valid license purchased only from themeforest(the above
 											Tabel Bobot Kriteria
 										</h3>
 									</div>
-								</div>
-								<div class="m-portlet__head-tools">
+								</div>                            
+                                <div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
 										<li class="m-portlet__nav-item">
 											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
-														Ubah Bobot
+														Simpan
 													</span>
 												</span>
 											</a>
 										</li>							
 									</ul>
-								</div>							
+								</div>	   													
 							</div>
 							<div class="m-portlet__body">
-								<!--begin: Datatable -->
+								<!--begin: Datatable -->										
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th bgcolor="yellow">
-										 	</th>
-											<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($mstr_kriterias as $mstr_kriteria):?>
-												
-												<th bgcolor="#00ff80">
-													<?php echo "K".$mstr_kriteria->Id  ?>
-												</th>
-																				
-											<?php  endforeach; ?>																	
-										</tr>
+                                          <th>Kriteria Pertama</th>
+                                          <th>Himpunan Hirarki</th>
+                                          <th>Kriteria Kedua</th>
+                                        </tr>
 									</thead>
 									<tbody>		
-											<?php 
-											$count_data = count($mstr_kriterias);
-											$idx_data_nilai =0;
-											foreach ($mstr_kriterias as $mstr_kriteria):?>
-												<tr>
-													<th bgcolor="#00ff80">
-														<?php echo "K".$mstr_kriteria->Id ?>
-													</th>
-													
-													<?php for($i = 0; $i < $count_data; $i++):?>											
-													<td>
-														<?php echo $nilai_kriterias[$idx_data_nilai]->NilaiBobotKriteria ?>
-													</td>
-													<?php $idx_data_nilai++; ?>
-													<?php endfor;?>	
-												</tr>												
-											<?php  endforeach;?>											 																	
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
+										<?php $angkaSebelumnya = 0; 
+											 foreach ($data_nilai_kriterias as $data_nilai_kriteria):
+												//echo  "tes-".$angkaSebelumnya ;
+												
+												if($data_nilai_kriteria->IdKriteria2 <= $jumlah_data_kriteria[0]->count_data)
+												{
+													$angkaSebelumnya = $data_nilai_kriteria->IdKriteria1;
+												}
 
-					</div>
-					<div class="m-content">					
-						<div class="m-portlet m-portlet--mobile">
-							<div class="m-portlet__head">
-								<div class="m-portlet__head-caption">
-									<div class="m-portlet__head-title">
-										<h3 class="m-portlet__head-text">
-											Matrix Bobot Prioritas
-										</h3>
-									</div>
-								</div>
-								<div class="m-portlet__head-tools">
-									
-								</div>							
-							</div>
-							<div class="m-portlet__body">
-								<!--begin: Datatable -->
-								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
-									<thead>
-										<tr>
-										 	<th bgcolor="yellow">
-										 	</th>
-											<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($mstr_kriterias as $mstr_kriteria):?>
-												
-												<th bgcolor="#00ff80">
-													<?php echo "K".$mstr_kriteria->Id  ?>
-												</th>
-																				
-											<?php  endforeach; ?>																	
-										</tr>									
-									</thead>
-									<tbody>		
-											<?php 
-											$count_data = count($mstr_kriterias);
-											$idx_data_nilai =0;
-											foreach ($mstr_kriterias as $mstr_kriteria):?>
-												<tr>
-													<th bgcolor="#00ff80">
-														<?php echo "K".$mstr_kriteria->Id ?>
-													</th>
-													
-													<?php for($i = 0; $i < $count_data; $i++):?>											
-													<td>
-														<?php echo round($nilai_kriterias[$idx_data_nilai]->NilaiBobotKriteria/$data_total_matrixs[$i]->total_matrix ,2)?>
-													</td>
-													<?php $idx_data_nilai++; ?>
-													<?php endfor;?>	
-												</tr>												
-											<?php  endforeach;?>											 																	
+												if($data_nilai_kriteria->IdKriteria2 >=  $angkaSebelumnya )
+												{ ?>
+													<tr>		
+														<td><?php echo $data_nilai_kriteria->Kriteria1?></td>
+														<td>
+															<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Pilih Himpunan Hirarki">
+																<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
+																<option value="<?php echo $mstr_skala_tfn->Nilai?>" <?php $mstr_skala_tfn->Id ==  $data_nilai_kriteria->NilaiBobotKriteria ? "selected" : ""; ?>><?php echo $mstr_skala_tfn->Nilai."-".$mstr_skala_tfn->Deskripsi?></option>																								
+																<?php endforeach; ?>
+															</select>
+														</td>
+														<td><?php echo $data_nilai_kriteria->Kriteria2?></td>
+													</tr>	
+												<?php
+												}
+												?>							
+										<?php endforeach; ?>				
 									</tbody>
-									<tfoot>
-									  <tr> 
-									  	<td>
-										  Jumlah
-										</td>
-										<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($data_total_matrixs as $data_total_matrix):?>
-												
-												<th bgcolor="#00ff80">
-												<?php echo $data_total_matrix->total_matrix?>
-												</th>
-												<?php  endforeach; ?>	
-									  </tr>
-									</tfoot>
 								</table>
 							</div>
 						</div>
 						<!-- END EXAMPLE TABLE PORTLET-->
-						
 					</div>
 				</div>
 			</div>

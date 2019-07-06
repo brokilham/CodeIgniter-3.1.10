@@ -1,11 +1,14 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
-class t_master_skala_fuzzy_model extends CI_Model
+class t_master_himpunan_linguistik_model extends CI_Model
 {
-    private $_table = "t_master_skala_fuzzy";
+    private $_table = "t_master_himpunan_linguistik";
     public $Id;
     public $Value;
     public $Keterangan;
     public $IdLinguistik;
+    public $Low;
+    public $High;
+    public $Up;
     
     public function rules()
     {
@@ -21,7 +24,16 @@ class t_master_skala_fuzzy_model extends CI_Model
             'label' => 'Keterangan'],
 
             ['field' => 'IdLinguistik',
-            'label' => 'IdLinguistik']
+            'label' => 'IdLinguistik'],
+
+            ['field' => 'Low',
+            'label' => 'Low'],
+
+            ['field' => 'High',
+            'label' => 'High'],
+
+            ['field' => 'Up',
+            'label' => 'Up'],
         ];
     }
 
@@ -36,17 +48,15 @@ class t_master_skala_fuzzy_model extends CI_Model
     {
         $this->db->select("*");
         $this->db->from($this->_table);
-        $this->db->join("t_master_himpunan_linguistik", "t_master_skala_fuzzy.IdLinguistik = t_master_himpunan_linguistik.id", "left");
-        $this->db->where("Keterangan", "TFN");
+        $this->db->where("Keterangan", "intensitas");
         return $this->db->get()->result();
         
         /*SELECT
-            *
-        FROM
-            t_master_skala_fuzzy
-        LEFT JOIN t_master_himpunan_linguistik ON t_master_skala_fuzzy.IdLinguistik = t_master_himpunan_linguistik.id
-        WHERE
-            Keterangan = 'TFN'
+                *
+            FROM
+                t_master_himpunan_linguistik
+            WHERE
+                Keterangan = 'intensitas'
         */     
     }
 

@@ -6,7 +6,7 @@ class t_nilai_kriteria_model extends CI_Model
     public $Id;
     public $IdKriteria1;
     public $IdKriteria2;
-  
+    
 
     public function rules()
     {
@@ -28,12 +28,23 @@ class t_nilai_kriteria_model extends CI_Model
             'rules' => 'required']
         ];
     }
-
-    public function save($IdKriteria1,$IdKriteria2,$IdTfn)
+   
+   
+    public function getCountMatrix()
+    {
+        $this->db->select('IdKriteria2, SUM(NilaiBobotKriteria) AS total_matrix');
+        $this->db->from($this->_table);
+        $this->db->group_by('IdKriteria2');
+        return $this->db->get()->result();
+        // SELECT IdKriteria2, SUM(NilaiBobotKriteria) AS total_matrix FROM `t_nilai_kriteria` GROUP BY IdKriteria2;
+    }
+   
+   
+    public function save($IdKriteria1,$IdKriteria2,$NilaiBobotKriteria)
     {
         $this->IdKriteria1 = $IdKriteria1;
         $this->IdKriteria2 = $IdKriteria2;
-        $this->IdTfn = $IdTfn;
+        $this->NilaiBobotKriteria = $NilaiBobotKriteria;
         $this->db->insert($this->_table, $this);
     }
 
@@ -62,40 +73,39 @@ class t_nilai_kriteria_model extends CI_Model
 
         // get_compiled_select mengembalikan quey tanpa mengeksekusinya
         // subquery
-        $this->db->select('t_nilai_kriteria.Id, t_master_kriteria.Description AS Kriteria1,t_nilai_kriteria.IdKriteria2,t_nilai_kriteria.IdTfn');
+        $this->db->select('t_nilai_kriteria.Id, t_master_kriteria.Description AS Kriteria1,t_nilai_kriteria.IdKriteria1,t_nilai_kriteria.IdKriteria2,t_nilai_kriteria.NilaiBobotKriteria');
         $this->db->from('t_nilai_kriteria');
         $this->db->join('t_master_kriteria', 't_nilai_kriteria.IdKriteria1 = t_master_kriteria.Id', 'LEFT');
         $subquery = $this->db->get_compiled_select();
         
         // main query
-        $this->db->select('t_utama.Id, t_utama.Kriteria1,t_master_kriteria.Description AS Kriteria2, t_utama.IdTfn');
+        $this->db->select('t_utama.Id,t_utama.IdKriteria1,t_utama.IdKriteria2, t_utama.Kriteria1,t_master_kriteria.Description AS Kriteria2, t_utama.NilaiBobotKriteria');
         $this->db->from('('.$subquery.') as t_utama');
         $this->db->join('t_master_kriteria', 't_utama.IdKriteria2 = t_master_kriteria.Id', 'LEFT');
-        $this->db->order_by('Kriteria1','Kriteria2','ASC');
+        $this->db->order_by('IdKriteria1','IdKriteria2','ASC');
         return $this->db->get()->result();
      
         /*SELECT
-            t_utama.Id,
-            t_utama.Kriteria1,
-            t_utama.IdTfn,
-            t_master_kriteria.Description AS Kriteria2
-        FROM
-            (
-                SELECT
-                    t_nilai_kriteria.Id,
-                    t_master_kriteria.Description AS Kriteria1,
-                    t_nilai_kriteria.IdKriteria2,
-                    t_nilai_kriteria.IdTfn
-
-                FROM
-                    t_nilai_kriteria
-                LEFT JOIN t_master_kriteria ON t_nilai_kriteria.IdKriteria1 = t_master_kriteria.Id
-            ) AS t_utama
-        LEFT JOIN t_master_kriteria ON t_utama.IdKriteria2 = t_master_kriteria.Id
+                t_utama.Id,
+                t_utama.Kriteria1,
+                t_utama.NilaiBobotKriteria,
+                t_master_kriteria.Description AS Kriteria2
+            FROM
+                (
+                    SELECT
+                        t_nilai_kriteria.Id,
+                        t_master_kriteria.Description AS Kriteria1,
+                        t_nilai_kriteria.IdKriteria2,
+                        t_nilai_kriteria.NilaiBobotKriteria
+                    FROM
+                        t_nilai_kriteria
+                    LEFT JOIN t_master_kriteria ON t_nilai_kriteria.IdKriteria1 = t_master_kriteria.Id
+                ) AS t_utama
+            LEFT JOIN t_master_kriteria ON t_utama.IdKriteria2 = t_master_kriteria.Id
             ORDER BY
                 Kriteria1,
                 Kriteria2
-        */
+                    */
 
     }
     

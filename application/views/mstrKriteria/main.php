@@ -76,6 +76,8 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
 										<li class="m-portlet__nav-item">
+										<?php 
+										   if($jumlah_data_kriteria[0]->count_data <6){?>
 											<a href="<?php echo site_url('/MstrKriteria/add') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
@@ -84,6 +86,22 @@ License: You must have a valid license purchased only from themeforest(the above
 													</span>
 												</span>
 											</a>
+										 	<?php										 
+										} 
+										else{?><?php
+											?>
+											<a href="" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+												<span>
+													<i class="la la-plus"></i>
+													<span>
+													 Tambah
+													</span>
+												</span>
+											</a>
+										 	<?php							
+										}
+										?>
+											
 										</li>							
 									</ul>
 								</div>

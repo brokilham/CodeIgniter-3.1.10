@@ -105,7 +105,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             <td>
 												<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Pilih Himpunan Hirarki">
 													<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
-													  <option value="<?php echo $mstr_skala_tfn->Value?>" <?php $mstr_skala_tfn->Id ==  $data_nilai_kriteria->IdTfn ? "selected" : ""; ?>><?php echo $mstr_skala_tfn->Value."-".$mstr_skala_tfn->Deskripsi?></option>																								
+													  <option value="<?php echo $mstr_skala_tfn->Nilai?>" <?php $mstr_skala_tfn->Id ==  $data_nilai_kriteria->NilaiBobotKriteria ? "selected" : ""; ?>><?php echo $mstr_skala_tfn->Nilai."-".$mstr_skala_tfn->Deskripsi?></option>																								
 													<?php endforeach; ?>
 												</select>
 											</td>

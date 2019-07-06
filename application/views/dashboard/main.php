@@ -89,10 +89,10 @@ License: You must have a valid license purchased only from themeforest(the above
 									<div class="m-portlet__body">
 										<table class="table m-table ">											
 											<tbody>
-											 	<?php foreach($data_fuzzys as $data_fuzzy):?>
+											 	<?php foreach($data_himpunan_linguistiks as $data_himpunan_linguistik):?>
 												 <tr>													
 													<td>
-														<?php echo  $data_fuzzy->Deskripsi?>
+														<?php echo  $data_himpunan_linguistik->Deskripsi?>
 													</td>
 												</tr>
 												<?php endforeach;?>																																		
