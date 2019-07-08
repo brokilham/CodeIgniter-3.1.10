@@ -17,7 +17,6 @@ class BobotKriteriaController extends CI_Controller {
 		
 		$data["nilai_kriterias"] = $this->t_nilai_kriteria_model->getAllOrderBy();
         $data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
-		$data["nilai_kriterias_tfn"] = $this->t_nilai_kriteria_model->getAllOrderByTfn();
 		$data["data_total_matrixs"] = $this->t_nilai_kriteria_model->getCountMatrix();
 		
 		$this->load->view('bobotKriteria/main.php',$data);

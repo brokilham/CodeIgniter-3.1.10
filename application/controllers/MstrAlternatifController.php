@@ -6,7 +6,7 @@ class MstrAlternatifController extends CI_Controller {
 	public function __construct()
     {
 		parent::__construct();
-		$this->load->database();  
+		//$this->load->database();  
 		$this->load->model("t_master_alternatif_model");
 		$this->load->library('form_validation');
     }

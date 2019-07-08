@@ -2,7 +2,6 @@
 class t_nilai_kriteria_model extends CI_Model
 {
     private $_table = "t_nilai_kriteria";
-    private $_table2 = "t_nilai_kriteria_tfn";
     public $Id;
     public $IdKriteria1;
     public $IdKriteria2;
@@ -53,16 +52,6 @@ class t_nilai_kriteria_model extends CI_Model
         $this->db->from($this->_table);
         $this->db->order_by("IdKriteria1","asc");
         $this->db->order_by("IdKriteria2","asc");
-        return $this->db->get()->result();
-        //select * from t_nilai_kriteria order by IdKriteria1, IdKriteria2
-    }
-
-    public function getAllOrderByTfn()
-    {
-        $this->db->from($this->_table2);
-        $this->db->order_by("IdKriteria1","asc");
-        $this->db->order_by("IdKriteria2","asc");
-        $this->db->order_by("tfn","asc");
         return $this->db->get()->result();
         //select * from t_nilai_kriteria order by IdKriteria1, IdKriteria2
     }
