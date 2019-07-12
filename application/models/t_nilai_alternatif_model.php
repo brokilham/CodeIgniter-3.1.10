@@ -6,8 +6,8 @@ class t_nilai_alternatif_model extends CI_Model
     public $IdKriteria;
     public $IdAlternatif;
     public $pencapaian;
-    public $nilai_pencapaian;
-    public $nilai_bobot;
+    public $NilaiPencapaian;
+    public $NilaiBobot;
   
 
     public function rules()
@@ -32,6 +32,15 @@ class t_nilai_alternatif_model extends CI_Model
     }
 
     public function getAllOrderBy()
+    {
+        $this->db->from($this->_table);
+        $this->db->order_by("IdAlternatif","asc");
+        $this->db->order_by("IdKriteria","asc");
+        return $this->db->get()->result();
+        //select * from t_nilai_alternatif order by IdAlternatif, IdKriteria
+    }
+
+    public function getNilaiBobotAlternatif()
     {
         $this->db->from($this->_table);
         $this->db->order_by("IdAlternatif","asc");

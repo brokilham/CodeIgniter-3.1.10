@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
 										<li class="m-portlet__nav-item">
-											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+											<a href="<?php echo site_url('/BobotAlternatif/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
@@ -137,23 +137,12 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-caption">
 									<div class="m-portlet__head-title">
 										<h3 class="m-portlet__head-text">
-											Tabel Alternatif
+											Nilai Pembobotan Alternatif
 										</h3>
 									</div>
 								</div>
 								<div class="m-portlet__head-tools">
-									<ul class="m-portlet__nav">
-										<li class="m-portlet__nav-item">
-											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
-												<span>
-													<i class="la la-plus"></i>
-													<span>
-														Nilai Pembobotan
-													</span>
-												</span>
-											</a>
-										</li>							
-									</ul>
+									
 								</div>							
 							</div>
 							<div class="m-portlet__body">
@@ -186,7 +175,7 @@ License: You must have a valid license purchased only from themeforest(the above
 													
 													<?php for($i = 0; $i < $count_data; $i++):?>											
 													<td>
-														<?php echo $nilai_alternatifs[$idx_data_nilai]->Pencapaian ?>
+														<?php echo $nilai_bobot_alternatifs[$idx_data_nilai]->NilaiBobot ?>
 													</td>
 													<?php $idx_data_nilai++; ?>
 													<?php endfor;?>	

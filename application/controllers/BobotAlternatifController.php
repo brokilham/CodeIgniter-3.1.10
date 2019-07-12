@@ -18,7 +18,9 @@ class BobotAlternatifController extends CI_Controller {
 		
 		$data["nilai_alternatifs"] = $this->t_nilai_alternatif_model->getAllOrderBy();
         $data["mstr_alternatifs"] = $this->t_master_alternatif_model->getAll();
-        $data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
+		$data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
+		$data["nilai_bobot_alternatifs"] = $this->t_nilai_alternatif_model->getNilaiBobotAlternatif();
+		
 		$this->load->view('bobotAlternatif/main.php',$data);
 	}
 
