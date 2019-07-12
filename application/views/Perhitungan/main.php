@@ -102,8 +102,8 @@ License: You must have a valid license purchased only from themeforest(the above
 
                                                  -->
                                                
-
-                                                <input type="checkbox" id="checkAll"> 
+		  										<!-- function checkbox semua masih di disabled-->
+                                                <!-- <input type="checkbox" id="checkAll"> --> 
 											</th>
 											<th>
 												Nama Alternatif
@@ -131,7 +131,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     </label>-->
                                                     <input type="checkbox" class="checkItem ">                   
                                                 <td class="tdvalue">
-                                                    <label> <?php echo $mstr_alternatif->Description ?></label>      
+                                                    <label> <?php echo $mstr_alternatif->Description."-".$mstr_alternatif->Id ?></label>      
                                                 </td>
                                                 <!--<td class="tdvalue"><a class="YYY">4</a></td>
                                                 <td class="tdvalue"><a class="XXX">7</a></td>  -->                                                     
@@ -398,6 +398,80 @@ License: You must have a valid license purchased only from themeforest(the above
 									</tfoot>
 								</table>
 							</div>
+						</div>	
+						<div class="m-portlet m-portlet--mobile">
+							<div class="m-portlet__head">
+								<div class="m-portlet__head-caption">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text">
+		  									Penentuan Nilai Vektor (V) dan Ordinat DefuzzFikasi (d')
+										</h3>
+									</div>
+								</div>
+								<div class="m-portlet__head-tools">
+								
+								
+								</div>							
+							</div>
+							<div class="m-portlet__body">
+								<!--begin: Datatable -->
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+									<thead>						
+										<tr>
+											<th rowspan= "3">Kriteria</th>
+											<th rowspan= "3">V(K1>K2)</th>
+											<th colspan="3">1</th>
+											<th colspan="3">0</th>
+											<th >Otherwise</th>
+											<th  rowspan= "3">Summary Of Degree</th>
+											<th  rowspan= "3">Min Of Degree</th>
+										</tr>
+										</tr>
+											<th colspan="3">M2 > M1</th>
+											<th colspan="3">L1 > U2 </th>
+											<th >(L1-L2) / (M2-U2) - (M1-L1) </th>
+										</tr>
+										<tr>
+											<th>M1</th>
+											<th>M2</th>
+											<th>Degreee</th>
+											<th>M1</th>
+											<th>M2</th>
+											<th>Degreee</th>
+											<th>Degreee</th>
+										</tr>
+									</thead>
+										<?php foreach ($mstr_kriterias as $mstr_kriteria):
+												 //for($i = 0; $i < $jumlah_data_kriteria[0]->count_data - 1; $i++):
+													foreach ($mstr_kriterias as $mstr_kriteria2):
+
+														if($mstr_kriteria->Id != $mstr_kriteria2->Id)
+														{
+															?>
+															<tr>
+																<td><?php echo "K".$mstr_kriteria->Id ?></td>
+																<td><?php echo "K".$mstr_kriteria->Id." >= K".$mstr_kriteria2->Id?></td>
+																<td><?php echo round(1/($jumlah_elemen[$i]->total_elemen/$data_jumlah_baris_tfn[$idx_nilai_sintesis]->jumlah_baris) ,3) ?></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+																<td></td>
+															</tr>
+															<?php //endfor;
+														}
+												  
+												endforeach;?>																							
+										<?php  endforeach;?>	
+									<tbody>																											 																	
+									</tbody>
+									<tfoot>							
+									</tfoot>
+								</table>								
+							</div>
 						</div>							
 					</div>					
 					</div>
@@ -423,33 +497,62 @@ License: You must have a valid license purchased only from themeforest(the above
 <script>
 
     $(document).ready(function(){
-        $('#checkAll').click(function () {    
+		// function check semua masih di disable
+        /*$('#checkAll').click(function () {    
              $(':checkbox.checkItem').prop('checked', this.checked);    
-        });
+        });*/
 
 
         $(document).on('click', '#btnHitung', function() { // menampilkan form modal update email
             var rows = [];
-            $("#tableData tr").each(function() {
+			
+			
+			$("#tableData tr").each(function() {
                 $tr = $(this);
-                var row = [];
-                $tr.find(".tdvalue").each(function(){
-                   // row.push($(this).children('a').attr('class'));
-                  /* if($(this).children('a'))
-                   {
-                     alert($(this).children('a').attr('type'));
-                   }*/
-
-                    if($(this).children().prop('tagName')=="INPUT"){
-
+				var row = [];
+				var checkboxAlternatif = false;
+                $tr.find(".tdvalue").each(function(){             
+                    if($(this).children().prop('tagName')=="INPUT"){										
+						 checkboxAlternatif = $(this).find("input[type=checkbox]").is(":checked")					
                     }
                     else {
-                        alert($(this).text());
+						if(checkboxAlternatif ===  true)
+						{
+							var iDalternatif = $(this).text().split("-");
+                        	alert(iDalternatif[1]);
+						}				
                     }
                   
                    
                 });
-            })
+			})
+			
+			$.ajax({
+				url:'<?=base_url()?>/HasilPerhitungan',
+				method: 'get',
+				//data: {username: username},
+				//dataType: 'json',
+				success: function(response){
+				/*var len = response.length;
+
+				if(len > 0){
+				
+				var uname = response[0].username;
+				var name = response[0].name;
+				var email = response[0].email;
+			
+				$('#suname').text(uname);
+				$('#sname').text(name);
+				$('#semail').text(email);
+			
+				}else{
+				$('#suname').text('');
+				$('#sname').text('');
+				$('#semail').text('');
+				}*/
+			
+				}
+			});
 
             //alert("tes");
             //parseDataFromTbl();
