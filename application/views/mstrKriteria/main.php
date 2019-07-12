@@ -142,7 +142,7 @@ License: You must have a valid license purchased only from themeforest(the above
 												<?php echo $mstr_kriteria->Description ?>
 											</td>
 											<td>
-												<?php echo $mstr_kriteria->nilai_target ?>
+												<?php echo $mstr_kriteria->NilaiTarget ?>
 											</td>
 											<td>
 												<a href="<?php echo site_url('/MstrKriteria/edit/'.$mstr_kriteria->Id) ?>" class="btn btn-warning m-btn m-btn--icon btn-lg m-btn--icon-only">

@@ -31,8 +31,16 @@ class PerhitunganController extends CI_Controller {
         $data["nilai_kriterias"] = $this->t_nilai_kriteria_model->getAllOrderBy();
         $data["kriteria_nilai_tfns"] = $this->t_nilai_kriteria_tfn_model->getAllOrderByTfn();
         $data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
-		$data["jumlah_data_kriteria"] = $this->t_master_kriteria_model->getCount();    
+        $data["jumlah_data_kriteria"] = $this->t_master_kriteria_model->getCount();
+        $data["data_jumlah_baris_tfn"] = $this->t_nilai_kriteria_tfn_model->getJumlahBarisTfn();
+        $data["jumlah_tfn"] = $this->t_nilai_kriteria_tfn_model->getJumlahTfn();
         //end of kriteria section
+
+        //begin elemen tfn
+        $data["jumlah_elemen"] = $this->t_nilai_kriteria_tfn_model->getElemen();
+        //end elemen tfn
+
+        
        
         $this->load->view('Perhitungan/main',$data);       
     } 

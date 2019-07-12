@@ -174,13 +174,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th bgcolor="yellow">
+										 	<th>
 										 	</th>
 											<?php 
 											$count_data2 = count($mstr_kriterias);
 											foreach($mstr_kriterias as $mstr_kriteria):?>
 												
-												<th bgcolor="#00ff80">
+												<th>
 													<?php echo "K".$mstr_kriteria->Id  ?>
 												</th>
 																				
@@ -193,7 +193,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											$idx_data_nilai =0;
 											foreach ($mstr_kriterias as $mstr_kriteria):?>
 												<tr>
-													<th bgcolor="#00ff80">
+													<th>
 														<?php echo "K".$mstr_kriteria->Id ?>
 													</th>
 													
@@ -214,7 +214,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-caption">
 									<div class="m-portlet__head-title">
 										<h3 class="m-portlet__head-text">
-											Tabel Bobot Kriteria
+											Matrik Perbandingan Kriteria Fuzzy AHP
 										</h3>
 									</div>
 								</div>
@@ -242,45 +242,160 @@ License: You must have a valid license purchased only from themeforest(the above
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th bgcolor="yellow"></th>
+										 	<th></th>
 											<?php 
 											$count_data2 = count($mstr_kriterias);
 											foreach($mstr_kriterias as $mstr_kriteria):?>											
-												<th bgcolor="#00ff80" colspan="3">
+												<th colspan="3">
 													<?php echo "K".$mstr_kriteria->Id  ?>
 												</th>																				
-											<?php  endforeach; ?>																	
+											<?php  endforeach; ?>
+											<th colspan = "3">Jumlah Baris</th>															
 										</tr>
 										<tr>
-											<th bgcolor="yellow"></th>
+											<th></th>
 											<?php 
 											$count_data2 = count($mstr_kriterias);
 											foreach($mstr_kriterias as $mstr_kriteria):?>											
-												<th bgcolor="#00ff80">L</th>
-												<th bgcolor="#00ff80">M</th>
-												<th bgcolor="#00ff80">U</th>																				
+												<th>L</th>
+												<th>M</th>
+												<th>U</th>																				
 											<?php  endforeach; ?>	
+											<th>L</th>
+											<th>M</th>
+											<th>U</th>
 										</tr>
+										
 									</thead>
 									<tbody>		
 											<?php 
 											$count_data = count($mstr_kriterias)*3;
 											$idx_data_nilai =0;
+											$idx_data_nilai2 =0;
 											foreach ($mstr_kriterias as $mstr_kriteria):?>
 												<tr>
-													<th bgcolor="#00ff80">
+													<th>
 														<?php echo "K".$mstr_kriteria->Id ?>
 													</th>
-													
-													<?php for($i = 0; $i < $count_data; $i++):?>											
+
+													<?php for($i = 0; $i < $count_data; $i++):?>
 													<td>
-														<?php echo $kriteria_nilai_tfns[$idx_data_nilai]->NilaiBobotTfn ?>
+														<?php echo round($kriteria_nilai_tfns[$idx_data_nilai]->NilaiBobotTfn,2) ?>
 													</td>
-													<?php $idx_data_nilai++; ?>
-													<?php endfor;?>	
+													<?php $idx_data_nilai++; ?>	
+													<?php endfor;?>
+
+													
+													<?php for($i = 0; $i < 3; $i++):?>
+													<td>
+													
+														<?php echo round($data_jumlah_baris_tfn[$idx_data_nilai2]->jumlah_baris,2) ?>
+													
+													</td>
+													<?php $idx_data_nilai2++; ?>
+													<?php endfor;?>
+													
+													
 												</tr>												
-											<?php  endforeach;?>											 																	
+												<?php  endforeach;?>																														 																	
 									</tbody>
+									<tfoot>
+												<tr> 
+													<?php $idx_total_tfn = 0;?>
+													<td>Jumlah</td>
+													<?php for($i = 0; $i < $count_data; $i++):?>										
+														<th></th>
+													<?php endfor;?>
+													
+													<?php for($i = 0; $i < 3; $i++):?>
+													
+													<th><?php echo round($jumlah_tfn[$idx_total_tfn]->total_tfn,2) ?></th>
+													<?php $idx_total_tfn++; ?>
+													<?php endfor; ?>
+															
+												</tr>
+									</tfoot>
+								</table>
+							</div>
+						</div>
+						<div class="m-portlet m-portlet--mobile">
+							<div class="m-portlet__head">
+								<div class="m-portlet__head-caption">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text">
+											Perhitungan Nilai Sintesis
+										</h3>
+									</div>
+								</div>
+								<div class="m-portlet__head-tools">
+									<!--
+									<ul class="m-portlet__nav">
+										<li class="m-portlet__nav-item">
+											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+												<span>
+													<i class="la la-plus"></i>
+													<span>
+														Ubah Bobot
+													</span>
+												</span>
+											</a>
+										</li>							
+									</ul>
+
+									 -->
+								
+								</div>							
+							</div>
+							<div class="m-portlet__body">
+								<!--begin: Datatable -->
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+									<thead>
+									<tr>
+										<th class="tg-0lax" rowspan="2"></th>
+										<th class="tg-0lax" colspan="3">Jumlah Baris</th>
+										<th class="tg-0lax" colspan="3">Nilai Sintesis</th>
+									</tr>
+									<tr>
+										<td class="tg-0lax">L</td>
+										<td class="tg-0lax">M</td>
+										<td class="tg-0lax">U</td>
+										<td class="tg-0lax">L</td>
+										<td class="tg-0lax">M</td>
+										<td class="tg-0lax">U</td>
+									</tr>
+									</thead>
+
+									<tbody>	
+											<?php 
+											$idx_data_nilai2 =0;
+											$idx_total_tfn = 0;
+											$idx_nilai_sintesis = 0;
+											foreach ($mstr_kriterias as $mstr_kriteria):?>
+											
+												<tr>
+													<th>
+														<?php echo "K".$mstr_kriteria->Id ?>
+													</th>
+													<?php for($i = 0; $i < 3; $i++):?>
+													<td>
+														<?php echo round($data_jumlah_baris_tfn[$idx_data_nilai2]->jumlah_baris,2) ?>
+													</td>
+													<?php $idx_data_nilai2++; ?>
+													<?php endfor;?>
+
+													<?php for($i = 0; $i < 3; $i++):?>
+													<td>
+														<?php echo round(1/($jumlah_elemen[$i]->total_elemen/$data_jumlah_baris_tfn[$idx_nilai_sintesis]->jumlah_baris) ,3) ?>
+													</td>
+													<?php $idx_total_tfn++ ?>
+													<?php $idx_nilai_sintesis++ ?>
+													<?php endfor;?>
+												</tr>												
+											<?php  endforeach;?>																													 																	
+									</tbody>
+									<tfoot>
+									
+									</tfoot>
 								</table>
 							</div>
 						</div>							

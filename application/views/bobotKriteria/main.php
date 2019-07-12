@@ -93,13 +93,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th bgcolor="yellow">
+										 	<th>
 										 	</th>
 											<?php 
 											$count_data2 = count($mstr_kriterias);
 											foreach($mstr_kriterias as $mstr_kriteria):?>
 												
-												<th bgcolor="#00ff80">
+												<th>
 													<?php echo "K".$mstr_kriteria->Id  ?>
 												</th>
 																				
@@ -112,19 +112,34 @@ License: You must have a valid license purchased only from themeforest(the above
 											$idx_data_nilai =0;
 											foreach ($mstr_kriterias as $mstr_kriteria):?>
 												<tr>
-													<th bgcolor="#00ff80">
+													<th>
 														<?php echo "K".$mstr_kriteria->Id ?>
 													</th>
 													
 													<?php for($i = 0; $i < $count_data; $i++):?>											
 													<td>
-														<?php echo $nilai_kriterias[$idx_data_nilai]->NilaiBobotKriteria ?>
+														<?php echo round($nilai_kriterias[$idx_data_nilai]->NilaiBobotKriteria,2) ?>
 													</td>
 													<?php $idx_data_nilai++; ?>
 													<?php endfor;?>	
 												</tr>												
 											<?php  endforeach;?>											 																	
 									</tbody>
+									<tfoot>
+									  <tr> 
+									  	<td>
+										  Jumlah
+										</td>
+										<?php 
+											$count_data2 = count($mstr_kriterias);
+											foreach($data_total_matrixs as $data_total_matrix):?>
+												
+												<th>
+												<?php echo $data_total_matrix->total_matrix?>
+												</th>
+												<?php  endforeach; ?>	
+									  </tr>
+									</tfoot>
 								</table>
 							</div>
 						</div>
@@ -150,13 +165,13 @@ License: You must have a valid license purchased only from themeforest(the above
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-										 	<th bgcolor="yellow">
+										 	<th>
 										 	</th>
 											<?php 
 											$count_data2 = count($mstr_kriterias);
 											foreach($mstr_kriterias as $mstr_kriteria):?>
 												
-												<th bgcolor="#00ff80">
+												<th>
 													<?php echo "K".$mstr_kriteria->Id  ?>
 												</th>
 																				
@@ -169,7 +184,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											$idx_data_nilai =0;
 											foreach ($mstr_kriterias as $mstr_kriteria):?>
 												<tr>
-													<th bgcolor="#00ff80">
+													<th>
 														<?php echo "K".$mstr_kriteria->Id ?>
 													</th>
 													
@@ -182,21 +197,6 @@ License: You must have a valid license purchased only from themeforest(the above
 												</tr>												
 											<?php  endforeach;?>											 																	
 									</tbody>
-									<tfoot>
-									  <tr> 
-									  	<td>
-										  Jumlah
-										</td>
-										<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($data_total_matrixs as $data_total_matrix):?>
-												
-												<th bgcolor="#00ff80">
-												<?php echo $data_total_matrix->total_matrix?>
-												</th>
-												<?php  endforeach; ?>	
-									  </tr>
-									</tfoot>
 								</table>
 							</div>
 						</div>
