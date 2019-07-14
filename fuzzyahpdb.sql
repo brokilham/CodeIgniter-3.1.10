@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100130
 File Encoding         : 65001
 
-Date: 2019-07-14 21:49:40
+Date: 2019-07-15 01:54:42
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -55,10 +55,10 @@ CREATE TABLE `t_master_himpunan_linguistik` (
 -- ----------------------------
 -- Records of t_master_himpunan_linguistik
 -- ----------------------------
-INSERT INTO `t_master_himpunan_linguistik` VALUES ('1', '9', 'Mutlak sangat penting dari', null, null, null, 'intensitas');
-INSERT INTO `t_master_himpunan_linguistik` VALUES ('2', '8', 'Mendekati mutlak dari', null, null, null, 'intensitas');
-INSERT INTO `t_master_himpunan_linguistik` VALUES ('3', '7', 'Sangat penting dari', null, null, null, 'intensitas');
-INSERT INTO `t_master_himpunan_linguistik` VALUES ('4', '6', 'Mendekati sangat penting dari', null, null, null, 'intensitas');
+INSERT INTO `t_master_himpunan_linguistik` VALUES ('1', '9', 'Mutlak sangat penting dari', '4', '0', '0', 'intensitas');
+INSERT INTO `t_master_himpunan_linguistik` VALUES ('2', '8', 'Mendekati mutlak dari', '7', '8', '9', 'intensitas');
+INSERT INTO `t_master_himpunan_linguistik` VALUES ('3', '7', 'Sangat penting dari', '3', null, null, 'intensitas');
+INSERT INTO `t_master_himpunan_linguistik` VALUES ('4', '6', 'Mendekati sangat penting dari', '2', null, null, 'intensitas');
 INSERT INTO `t_master_himpunan_linguistik` VALUES ('5', '5', 'Lebih penting dari', null, null, null, 'intensitas');
 INSERT INTO `t_master_himpunan_linguistik` VALUES ('6', '4', 'Mendekati lebih penting dari', null, null, null, 'intensitas');
 INSERT INTO `t_master_himpunan_linguistik` VALUES ('7', '3', 'Sedikit lebih penting dari', null, null, null, 'intensitas');
@@ -172,7 +172,7 @@ CREATE TABLE `t_nilai_kriteria` (
 -- ----------------------------
 -- Records of t_nilai_kriteria
 -- ----------------------------
-INSERT INTO `t_nilai_kriteria` VALUES ('1', '1', '1', '1');
+INSERT INTO `t_nilai_kriteria` VALUES ('1', '1', '1', '7');
 INSERT INTO `t_nilai_kriteria` VALUES ('2', '2', '1', '3');
 INSERT INTO `t_nilai_kriteria` VALUES ('3', '3', '1', '2');
 INSERT INTO `t_nilai_kriteria` VALUES ('4', '4', '1', '0.333');
@@ -214,17 +214,16 @@ CREATE TABLE `t_nilai_kriteria_tfn` (
 -- ----------------------------
 -- Records of t_nilai_kriteria_tfn
 -- ----------------------------
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('1', '1', '1', 'L', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('2', '2', '1', 'L', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('3', '3', '1', 'L', '0.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('4', '4', '1', 'L', '0.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('5', '5', '1', 'L', '0.5');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('6', '1', '1', 'M', '1');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('6', '1', '1', 'L', '3');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('7', '2', '1', 'M', '1.5');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('8', '3', '1', 'M', '1');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('8', '1', '1', 'M', '0');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('9', '4', '1', 'M', '0.667');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('10', '5', '1', 'M', '0.667');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('11', '1', '1', 'U', '1');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('11', '1', '1', 'U', '0');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('12', '2', '1', 'U', '2');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('13', '3', '1', 'U', '1.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('14', '4', '1', 'U', '1');
