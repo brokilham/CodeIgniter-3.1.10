@@ -66,6 +66,8 @@ $route['MstrKriteria/delete/(:any)'] = 'MstrKriteriaController/delete/$1'; //sud
 
 $route['BobotKriteria'] = 'BobotKriteriaController'; // on progress
 $route['BobotKriteria/edit'] = 'BobotKriteriaController/edit'; // on progress
+$route['BobotKriteria/edit_action'] = 'BobotKriteriaController/edit_action'; // on progress
+
 $route['BobotKriteria/edit2'] = 'BobotKriteriaController/edit2'; // on progress
 
 $route['BobotAlternatif'] = 'BobotAlternatifController'; // on progress
@@ -74,5 +76,6 @@ $route['BobotAlternatif/edit'] = 'BobotAlternatifController/edit'; // on progres
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
 
 $route['Perhitungan'] = 'PerhitunganController/main';
+
 
 // tes 123

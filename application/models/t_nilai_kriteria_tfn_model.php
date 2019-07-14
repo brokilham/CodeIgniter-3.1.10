@@ -75,5 +75,62 @@ class t_nilai_kriteria_tfn_model extends CI_Model
         //SELECT Tfn, SUM(NilaiBobotTfn) FROM t_nilai_kriteria_tfn WHERE Tfn = 'L'
     }
 
+
+    public function getbyId($IdKriteria1,$IdKriteria2)
+    {
+        //$this->Id = $Id;   
+        $this->IdKriteria1 = $IdKriteria1;
+        $this->IdKriteria2 = $IdKriteria2;
+        return $this->db->get_where($this->_table, ["IdKriteria1" => $IdKriteria1,"IdKriteria2" => $IdKriteria2])->result();
+        
+        //SELECT * FROM t_nilai_kriteria_tfn WHERE IdKriteria1 = '1' AND IdKriteria2 = '2'
+   
+    }
+
+
+    public function update($Id,$IdKriteria1,$IdKriteria2,$Tfn,$NilaiBobotTfn)
+    {
+        $this->Id = $Id;   
+        $this->IdKriteria1 = $IdKriteria1;
+        $this->IdKriteria2 = $IdKriteria2;
+        $this->Tfn = $Tfn;
+        $this->NilaiBobotTfn = $NilaiBobotTfn;
+        $this->db->update($this->_table, $this, array('Id'=> $Id));      
+    }
+
+    public function getDataByIdKriteria($IdKriteria1,$IdKriteria2)
+    {
+
+        $this->db->select('
+                            t_nilai_kriteria.IdKriteria1,
+                            t_nilai_kriteria.IdKriteria2,
+                            t_nilai_kriteria.NilaiBobotKriteria,
+                            t_master_himpunan_linguistik.Low,
+                            t_master_himpunan_linguistik.`Medium`,
+                            t_master_himpunan_linguistik.Up');
+        $this->db->from('t_nilai_kriteria');
+        $this->db->join('t_master_himpunan_linguistik', 't_nilai_kriteria.NilaiBobotKriteria = t_master_himpunan_linguistik.Nilai', 'LEFT');
+        $this->db->where('IdKriteria1',$IdKriteria1);
+        $this->db->where('IdKriteria2', $IdKriteria2);
+        return $this->db->get()->row();
+
+        //return $this->db->get_where($this->_table, ["IdKriteria1" => $IdKriteria1,"IdKriteria2" => $IdKriteria2,"Tfn" => $Tfn])->row();
+    
+        /*SELECT
+            t_nilai_kriteria.IdKriteria1,
+            t_nilai_kriteria.IdKriteria2,
+            t_nilai_kriteria.NilaiBobotKriteria,
+            t_master_himpunan_linguistik.Low,
+            t_master_himpunan_linguistik.`Medium`,
+            t_master_himpunan_linguistik.Up
+        FROM
+            t_nilai_kriteria
+        LEFT JOIN t_master_himpunan_linguistik ON t_nilai_kriteria.NilaiBobotKriteria = t_master_himpunan_linguistik.Nilai
+        WHERE
+            IdKriteria1 = '1'
+        AND IdKriteria2 = '1'*/
+    
+    }
+
         
 }

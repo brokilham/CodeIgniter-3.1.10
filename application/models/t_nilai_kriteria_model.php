@@ -47,6 +47,20 @@ class t_nilai_kriteria_model extends CI_Model
         $this->db->insert($this->_table, $this);
     }
 
+    public function update($Id,$IdKriteria1,$IdKriteria2,$NilaiBobotKriteria)
+    {
+        $this->Id = $Id;
+        $this->IdKriteria1 = $IdKriteria1;
+        $this->IdKriteria2 = $IdKriteria2;
+        $this->NilaiBobotKriteria = $NilaiBobotKriteria;
+        $this->db->update($this->_table, $this, array('Id' => $Id));      
+    }
+
+    public function getDataByIdKriteria($IdKriteria1,$IdKriteria2)
+    {
+        return $this->db->get_where($this->_table, ["IdKriteria1" => $IdKriteria1,"IdKriteria2" => $IdKriteria2])->row();
+    }
+
     public function getAllOrderBy()
     {
         $this->db->from($this->_table);

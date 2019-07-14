@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="m-portlet__body">
 								<!--begin: Datatable -->
-		  						<form action = "#">
+		  						<form action="<?php echo base_url('BobotKriteria/edit_action')?>" method="POST">
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
@@ -88,28 +88,28 @@ License: You must have a valid license purchased only from themeforest(the above
 									<tbody>		
 		  								<tr>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Pertama">
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Pertama" id="slc_kriteria1" name="slc_kriteria1">
 												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
 													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Pertama">
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Himpunab Hirarki" id="slc_hirarki" name="slc_hirarki">
 												<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
 													<option value="<?php echo $mstr_skala_tfn->Nilai?>"><?php echo round($mstr_skala_tfn->Nilai,2)."-".$mstr_skala_tfn->Deskripsi?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Kedua">
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Kedua" id="slc_kriteria2" name="slc_kriteria2">
 												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
 													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
 										  <td>
-										  	<button type="submit" class="btn btn-success">Simpan</button></td>
+										  	<button type="submit" class="btn btn-success" id="btn_simpan">Simpan</button></td>
 										</tr>
 									</tbody>
 								</table>

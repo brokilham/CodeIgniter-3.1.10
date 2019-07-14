@@ -9,7 +9,9 @@ class BobotKriteriaController extends CI_Controller {
 		$this->load->database();  
 		$this->load->model("t_master_kriteria_model");
 		$this->load->model("t_nilai_kriteria_model");
-		$this->load->model("t_master_himpunan_linguistik_model");		
+		$this->load->model("t_master_himpunan_linguistik_model");	
+		$this->load->model("t_nilai_kriteria_tfn_model");	
+			
     }
 
 	public function index()
@@ -22,7 +24,7 @@ class BobotKriteriaController extends CI_Controller {
 		$this->load->view('bobotKriteria/main.php',$data);
 	}
 
-
+    // untuk menampilkan form edit
 	public function edit()
 	{
 		$data["mstr_kriterias"] = $this->t_master_kriteria_model->getAll();
@@ -34,14 +36,103 @@ class BobotKriteriaController extends CI_Controller {
 	}
 
 
+	public function edit_actionx($id_kriteria1 = null, $id_kriteria2 =  null, $value_kriteria = null)
+	{
+
+		/*if(($id_kriteria1 != null) && ($id_kriteria2 != null) && ($value_kriteria != null))
+		{
+			$data_nilai_kriteria = $this->t_nilai_kriteria_model->getDataByIdKriteria($id_kriteria1,$id_kriteria2);
+			if($data_nilai_kriteria)
+			{
+				echo "ada data";
+			}
+			else
+			{
+				echo "tidak ada data";
+			}
+		}*/
+		//echo "hello world";
+		/*$output = array('pls' => 1,
+                'msg' => "Password has been sent to given e-mail address"
+          );
+		$this->output->set_content_type('application/json')
+			 ->set_output(json_encode($output));*/
+			 
+			/* $data['result'] = $output = array('pls' => 1,
+			 'msg' => "Password has been sent to given e-mail address"
+	   );*/
+
+			
+			 return $data;
+
+			 echo json_encode($res);
+	}
+
+	
+	
+	public function edit_action() {
+		$id_kriteria1   = $this->input->post('slc_kriteria1');
+		$id_kriteria2   = $this->input->post('slc_kriteria2');
+		$value_kriteria = $this->input->post('slc_hirarki');
+		
+		// begin section update kriteria
+		if(($id_kriteria1 != null) && ($id_kriteria2 != null) && ($value_kriteria != null)){
+			$data_nilai_kriteria = $this->t_nilai_kriteria_model->getDataByIdKriteria($id_kriteria1,$id_kriteria2);
+			if($data_nilai_kriteria)
+			{
+				$this->t_nilai_kriteria_model->update($data_nilai_kriteria->Id,$id_kriteria1,$id_kriteria2,$value_kriteria);
+				
+				// begin of edit tfn
+
+
+				$data_nilai_kriteria_tfn = $this->t_nilai_kriteria_tfn_model->getDataByIdKriteria($id_kriteria1,$id_kriteria2);
+				//echo $data_nilai_kriteria_tfn->NilaiBobotKriteria."-".$data_nilai_kriteria_tfn->IdKriteria1."-".$data_nilai_kriteria_tfn->IdKriteria2."-".'L'."-".$data_nilai_kriteria_tfn->Low;
+				
+				$data_nilai_kriteria_tfn1 = $this->t_nilai_kriteria_tfn_model->getbyId($id_kriteria1,$id_kriteria2);
+				$tfn_value = null;
+				foreach($data_nilai_kriteria_tfn1 as $item)
+				{
+					if($item->Tfn == "L")
+					{ // L
+						$tfn_value =  $data_nilai_kriteria_tfn->Low;
+					}
+					else if($item->Tfn == "M")
+					{ // M
+						$tfn_value = $data_nilai_kriteria_tfn->Medium;
+					}
+					else 
+					{ //U 
+						$tfn_value =  $data_nilai_kriteria_tfn->Up;
+					}
+					$this->t_nilai_kriteria_tfn_model->update($item->Id, $item->IdKriteria1,$item->IdKriteria2,$item->Tfn,$tfn_value);
+
+				}
+				// end of edit tfn
+							
+				redirect(site_url('BobotKriteria/edit'));	
+				
+			}
+			else
+			{
+				echo "tidak ada data";
+			}
+		}
+		else{
+			echo  "parameter kurang";
+		}
+	
+	}
+
+	
+	
+
+
 	public function edit2()
 	{
 		$data["mstr_skala_tfns"] = $this->t_master_himpunan_linguistik_model->getAllTFN();
 		$data["data_nilai_kriterias"] = $this->t_nilai_kriteria_model->getDataNilaiKriteria();
 		$data["jumlah_data_kriteria"] = $this->t_master_kriteria_model->getCount();
 		
-		
-
 		$this->load->view('bobotKriteria/edit2.php',$data);
 	}
 }
