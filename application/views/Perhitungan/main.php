@@ -408,9 +408,7 @@ License: You must have a valid license purchased only from themeforest(the above
 										</h3>
 									</div>
 								</div>
-								<div class="m-portlet__head-tools">
-								
-								
+								<div class="m-portlet__head-tools">														
 								</div>							
 							</div>
 							<div class="m-portlet__body">
@@ -449,9 +447,11 @@ License: You must have a valid license purchased only from themeforest(the above
 										$degree2 = 0;
 										$degree3 = 0;
 										$value_comparasion_1 = 0;	
-
+										$min_sum_of_degree = array();
+										$tot_min_sum_of_degree = 0;
 										foreach ($mstr_kriterias as $mstr_kriteria):
 												 //for($i = 0; $i < $jumlah_data_kriteria[0]->count_data - 1; $i++):
+													$value_comparasion_1 = 0;
 													foreach ($mstr_kriterias as $mstr_kriteria2):
 
 														if($mstr_kriteria->Id != $mstr_kriteria2->Id)
@@ -543,12 +543,27 @@ License: You must have a valid license purchased only from themeforest(the above
 																	}
 																	?>
 																</td>
-																<td><?php echo $degree1+$degree2+$degree3?></td>
+																<td>
+																<?php 
+																$sum_of_degree = $degree1+$degree2+$degree3;
+																echo $sum_of_degree;
+																if($value_comparasion_1 > 0){
+																	$value_comparasion_1 = ($value_comparasion_1<=$sum_of_degree)?$value_comparasion_1:$sum_of_degree;
+																}
+																else{
+																	$value_comparasion_1 = $sum_of_degree;
+																}
+																
+																?></td>
 															</tr>
 															<?php //endfor;
 														}												  
 												endforeach; ?>																							
-										<?php  endforeach;?>	
+										<?php  
+											//echo "tes".$value_comparasion_1."-";
+											$tot_min_sum_of_degree = $tot_min_sum_of_degree + $value_comparasion_1;
+											$min_sum_of_degree[] = $value_comparasion_1;
+										endforeach;?>	
 									<tbody>																											 																	
 									</tbody>
 									<tfoot>							
@@ -575,17 +590,23 @@ License: You must have a valid license purchased only from themeforest(the above
 										<tr>
 											<th>Kriteria</th>	
 											<th>W</th>
+											<th>W Total</th>	
 											<th>W Lokal</th>													
 										</tr>
 									</thead>
 									<tbody>	
-										<?php foreach ($mstr_kriterias as $mstr_kriteria):?>
+										<?php 
+										$i = 0;
+										foreach ($mstr_kriterias as $mstr_kriteria):?>
 										<tr> 
 											<td><?php echo  "K".$mstr_kriteria->Id; ?> </td>
-											<td> </td>
-											<td> </td>
+											<td><?php echo $min_sum_of_degree[$i]?> </td>
+											<td><?php echo $tot_min_sum_of_degree?></td>
+											<td><?php echo $min_sum_of_degree[$i]/$tot_min_sum_of_degree?></td>
 										</tr>										 		
-										<?php endforeach;?>															
+										<?php
+										$i++;
+										endforeach;?>															
 									</tbody>
 								</table>
 							</div>
