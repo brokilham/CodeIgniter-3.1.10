@@ -17,7 +17,8 @@ class PerhitunganController extends CI_Controller {
         $this->load->model("t_master_alternatif_model");
         $this->load->model("t_master_kriteria_model");      
         $this->load->model("t_nilai_kriteria_tfn_model");  
-        $this->load->model("t_nilai_kriteria_model");               
+        $this->load->model("t_nilai_kriteria_model");
+        $this->load->model("view_nilai_sintesis_model");           
     }
 
     public function main()
@@ -40,6 +41,7 @@ class PerhitunganController extends CI_Controller {
         $data["jumlah_elemen"] = $this->t_nilai_kriteria_tfn_model->getElemen();
         //end elemen tfn
 
+        $data["nilai_sintetis"] = $this->view_nilai_sintesis_model->getall();
         
        
         $this->load->view('Perhitungan/main',$data);       

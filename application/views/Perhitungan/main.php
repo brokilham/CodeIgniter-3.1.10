@@ -423,8 +423,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<th colspan="3">1</th>
 											<th colspan="3">0</th>
 											<th >Otherwise</th>
-											<th  rowspan= "3">Summary Of Degree</th>
-											<th  rowspan= "3">Min Of Degree</th>
+											<th  rowspan= "3">Summary Of Degree</th>							
 										</tr>
 										</tr>
 											<th colspan="3">M2 > M1</th>
@@ -435,13 +434,23 @@ License: You must have a valid license purchased only from themeforest(the above
 											<th>M1</th>
 											<th>M2</th>
 											<th>Degreee</th>
-											<th>M1</th>
-											<th>M2</th>
+											<th>L1</th>
+											<th>U2</th>
 											<th>Degreee</th>
 											<th>Degreee</th>
 										</tr>
 									</thead>
-										<?php foreach ($mstr_kriterias as $mstr_kriteria):
+										<?php 				
+										$m2 = 0;
+										$m1 = 0;	
+										$l1 = 0;
+										$u2 = 0;
+										$degree1 = 0;
+										$degree2 = 0;
+										$degree3 = 0;
+										$value_comparasion_1 = 0;	
+
+										foreach ($mstr_kriterias as $mstr_kriteria):
 												 //for($i = 0; $i < $jumlah_data_kriteria[0]->count_data - 1; $i++):
 													foreach ($mstr_kriterias as $mstr_kriteria2):
 
@@ -451,20 +460,94 @@ License: You must have a valid license purchased only from themeforest(the above
 															<tr>
 																<td><?php echo "K".$mstr_kriteria->Id ?></td>
 																<td><?php echo "K".$mstr_kriteria->Id." >= K".$mstr_kriteria2->Id?></td>
-																<td><?php echo round(1/($jumlah_elemen[$i]->total_elemen/$data_jumlah_baris_tfn[$idx_nilai_sintesis]->jumlah_baris) ,3) ?></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
-																<td></td>
+																<td>
+																	<?php foreach ($nilai_sintetis as $nilai_sintetisitem): 
+																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria->Id){ 
+																				$m1 = $nilai_sintetisitem->M_sintesis;
+																				echo $nilai_sintetisitem->M_sintesis;
+																			} 
+																		  endforeach; ?>
+																</td>
+																<td>
+																	<?php foreach ($nilai_sintetis as $nilai_sintetisitem): 
+																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria2->Id){
+																				$m2 =  $nilai_sintetisitem->M_sintesis;
+																				echo $nilai_sintetisitem->M_sintesis;
+																			} 
+																		  endforeach;?>
+																	</td>
+																<td>
+																	<?php if($m2 > $m1){
+																		$value_comparasion = 1;
+																		$degree1 = 1;
+																		echo "1";
+																	}
+																	else{
+																		$degree1 = 0;
+																		$value_comparasion = 0;
+																		echo "Next";
+																	}?>
+																</td>
+																<td>
+																	<?php if ($value_comparasion != 1){
+																		foreach ($nilai_sintetis as $nilai_sintetisitem): 
+																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria->Id){ 
+																				$l1 = $nilai_sintetisitem->L_sintesis;
+																				echo $nilai_sintetisitem->L_sintesis;
+																			} 
+																		endforeach; 
+																	}
+																	else
+																	{
+																		echo "-";
+																	}?>
+																</td>
+																<td>
+																<?php if ($value_comparasion != 1){
+																		foreach ($nilai_sintetis as $nilai_sintetisitem): 
+																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria2->Id){
+																				$u2 = $nilai_sintetisitem->U_sintesis;
+																				echo $nilai_sintetisitem->U_sintesis;
+																			} 
+																		endforeach; 
+																	}
+																	else
+																	{
+																		echo "-";
+																	}?>
+																</td>
+																<td>
+																	<?php if($l1 > $u2){
+																		//$value_comparasion = 1;
+																		$degree2 = 0;
+																		echo "0";
+																	}
+																	else{
+																		if($value_comparasion > 0){
+																			echo "-";
+																		}
+																		else{
+																			echo "Next";
+																		}																	
+																	}?>
+																</td>
+																<td>
+																	<?php 
+																	if($value_comparasion <1){
+																		$degree3 = ($l1-$u2)/(($m2-$u2)-($m1-$l1));
+																		echo $degree3;
+																	}
+																	else{
+																		$degree3 = 0;
+																		echo "-";
+																	}
+																	?>
+																</td>
+																<td><?php echo $degree1+$degree2+$degree3?></td>
 															</tr>
 															<?php //endfor;
-														}
-												  
-												endforeach;?>																							
+														}												  
+												endforeach; ?>																							
 										<?php  endforeach;?>	
 									<tbody>																											 																	
 									</tbody>
@@ -472,7 +555,41 @@ License: You must have a valid license purchased only from themeforest(the above
 									</tfoot>
 								</table>								
 							</div>
-						</div>							
+						</div>		
+						<div class="m-portlet m-portlet--mobile">
+							<div class="m-portlet__head">
+								<div class="m-portlet__head-caption">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text">
+											Normalisai Bobot Vektor
+										</h3>
+									</div>
+								</div>
+								<div class="m-portlet__head-tools">																
+								</div>							
+							</div>
+							<div class="m-portlet__body">
+								<!--begin: Datatable -->
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+									<thead>
+										<tr>
+											<th>Kriteria</th>	
+											<th>W</th>
+											<th>W Lokal</th>													
+										</tr>
+									</thead>
+									<tbody>	
+										<?php foreach ($mstr_kriterias as $mstr_kriteria):?>
+										<tr> 
+											<td><?php echo  "K".$mstr_kriteria->Id; ?> </td>
+											<td> </td>
+											<td> </td>
+										</tr>										 		
+										<?php endforeach;?>															
+									</tbody>
+								</table>
+							</div>
+						</div>					
 					</div>					
 					</div>
 				</div>
