@@ -75,21 +75,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                             </h3>
                                         </div>
                                     </div>
-                                    <div class="m-portlet__head-tools">
-                                        <!-- 
-                                        <ul class="m-portlet__nav">
-                                            <li class="m-portlet__nav-item">
-                                                <a href="<?php //echo site_url('/PerhitunganHasil') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
-                                                    <span>
-                                                        <i class="la la-plus"></i>
-                                                        <span>
-                                                        Hitung
-                                                        </span>
-                                                    </span>
-                                                </a>
-                                            </li>							
-                                        </ul>
-                                        -->								
+                                    <div class="m-portlet__head-tools">                                    						
                                     </div>
                                 </div>
                                 <div class="m-portlet__body">                            
@@ -168,8 +154,55 @@ License: You must have a valid license purchased only from themeforest(the above
                                     </table>
                                 </div>
                             </div>	
-                        <?php endforeach; ?>  		                      																		
-					</div>					
+                        <?php endforeach; ?>   
+
+                        <div class="m-portlet m-portlet--mobile">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Data Bobot
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">                                    						
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">                            
+                                <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+                                    <thead>
+                                        <tr>
+                                            <td> </td>
+                                            <td colspan = "5">Kriteria</td>
+                                        </tr>
+                                        <tr> 
+                                            <td> </td>
+                                            <?php foreach ($mstr_kriterias as $mstr_kriteria): ?>
+                                                <td><?php echo $mstr_kriteria->Description." (K".$mstr_kriteria->Id.")"?></td>
+                                            <?php endforeach;?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>	
+                                        <tr>
+                                            <td>Alternatif</td>
+                                        </tr>	
+                                        <?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>		
+                                          							
+                                            <tr> 
+                                                <td>
+                                                    <?php echo "A".$mstr_alternatif->Id ?> 
+                                                </td>
+                                            </tr>
+                                        <?php endforeach;?>							
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                        
+                                        </tr>
+                                    </tfoot>
+                                </table>                                   
+                            </div>
+                        </div>	                      		                      																									
 					</div>
 				</div>
 			</div>

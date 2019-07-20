@@ -1,0 +1,4 @@
+1. tombol hitung menggunakan ajax, dan mengirim kriteria yang ditampilkan & mengirim data Normalisai Bobot Vektor  w lokal
+2. membuat tabel nilai bobot
+3. membuat table hasil akhir
+4. ranking
