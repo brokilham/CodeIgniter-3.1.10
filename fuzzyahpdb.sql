@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100130
 File Encoding         : 65001
 
-Date: 2019-07-15 01:54:42
+Date: 2019-07-21 00:13:08
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -116,6 +116,206 @@ DROP TABLE IF EXISTS `t_nilai_alternatif`;
 CREATE TABLE `t_nilai_alternatif` (
   `Id` int(5) NOT NULL AUTO_INCREMENT,
   `IdAlternatif` varchar(5) NOT NULL,
+  `IdAlternatif2` varchar(5) NOT NULL,
+  `IdKriteria` varchar(5) NOT NULL,
+  `Pencapaian` double NOT NULL,
+  `NilaiPencapaian` double NOT NULL,
+  `NilaiBobot` double DEFAULT NULL,
+  PRIMARY KEY (`Id`)
+) ENGINE=InnoDB AUTO_INCREMENT=217 DEFAULT CHARSET=latin1;
+
+-- ----------------------------
+-- Records of t_nilai_alternatif
+-- ----------------------------
+INSERT INTO `t_nilai_alternatif` VALUES ('1', '1', '1', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('2', '2', '1', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('3', '3', '1', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('4', '4', '1', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('5', '5', '1', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('6', '6', '1', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('7', '1', '2', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('8', '2', '2', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('9', '3', '2', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('10', '4', '2', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('11', '5', '2', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('12', '6', '2', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('13', '1', '3', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('14', '2', '3', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('15', '3', '3', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('16', '4', '3', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('17', '5', '3', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('18', '6', '3', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('19', '1', '4', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('20', '2', '4', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('21', '3', '4', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('22', '4', '4', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('23', '5', '4', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('24', '6', '4', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('25', '1', '5', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('26', '2', '5', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('27', '3', '5', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('28', '4', '5', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('29', '5', '5', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('30', '6', '5', '1', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('31', '1', '6', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('32', '2', '6', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('33', '3', '6', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('34', '4', '6', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('35', '5', '6', '1', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('36', '6', '6', '1', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('37', '1', '1', '2', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('38', '2', '1', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('39', '3', '1', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('40', '4', '1', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('41', '5', '1', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('42', '6', '1', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('43', '1', '2', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('44', '2', '2', '2', '0', '0', '12');
+INSERT INTO `t_nilai_alternatif` VALUES ('45', '3', '2', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('46', '4', '2', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('47', '5', '2', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('48', '6', '2', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('49', '1', '3', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('50', '2', '3', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('51', '3', '3', '2', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('52', '4', '3', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('53', '5', '3', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('54', '6', '3', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('55', '1', '4', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('56', '2', '4', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('57', '3', '4', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('58', '4', '4', '2', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('59', '5', '4', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('60', '6', '4', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('61', '1', '5', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('62', '2', '5', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('63', '3', '5', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('64', '4', '5', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('65', '5', '5', '2', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('66', '6', '5', '2', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('67', '1', '6', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('68', '2', '6', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('69', '3', '6', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('70', '4', '6', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('71', '5', '6', '2', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('72', '6', '6', '2', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('73', '1', '1', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('74', '2', '1', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('75', '3', '1', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('76', '4', '1', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('77', '5', '1', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('78', '6', '1', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('79', '1', '2', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('80', '2', '2', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('81', '3', '2', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('82', '4', '2', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('83', '5', '2', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('84', '6', '2', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('85', '1', '3', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('86', '2', '3', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('87', '3', '3', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('88', '4', '3', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('89', '5', '3', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('90', '6', '3', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('91', '1', '4', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('92', '2', '4', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('93', '3', '4', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('94', '4', '4', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('95', '5', '4', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('96', '6', '4', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('97', '1', '5', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('98', '2', '5', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('99', '3', '5', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('100', '4', '5', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('101', '5', '5', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('102', '6', '5', '3', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('103', '1', '6', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('104', '2', '6', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('105', '3', '6', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('106', '4', '6', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('107', '5', '6', '3', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('108', '6', '6', '3', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('109', '1', '1', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('110', '2', '1', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('111', '3', '1', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('112', '4', '1', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('113', '5', '1', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('114', '6', '1', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('115', '1', '2', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('116', '2', '2', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('117', '3', '2', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('118', '4', '2', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('119', '5', '2', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('120', '6', '2', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('121', '1', '3', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('122', '2', '3', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('123', '3', '3', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('124', '4', '3', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('125', '5', '3', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('126', '6', '3', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('127', '1', '4', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('128', '2', '4', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('129', '3', '4', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('130', '4', '4', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('131', '5', '4', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('132', '6', '4', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('133', '1', '5', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('134', '2', '5', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('135', '3', '5', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('136', '4', '5', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('137', '5', '5', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('138', '6', '5', '4', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('139', '1', '6', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('140', '2', '6', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('141', '3', '6', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('142', '4', '6', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('143', '5', '6', '4', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('144', '6', '6', '4', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('145', '1', '1', '5', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('146', '2', '1', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('147', '3', '1', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('148', '4', '1', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('149', '5', '1', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('150', '6', '1', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('151', '1', '2', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('152', '2', '2', '5', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('153', '3', '2', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('154', '4', '2', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('155', '5', '2', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('156', '6', '2', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('157', '1', '3', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('158', '2', '3', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('159', '3', '3', '5', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('160', '4', '3', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('161', '5', '3', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('162', '6', '3', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('163', '1', '4', '5', '0', '0', '10');
+INSERT INTO `t_nilai_alternatif` VALUES ('164', '2', '4', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('165', '3', '4', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('166', '4', '4', '5', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('167', '5', '4', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('168', '6', '4', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('169', '1', '5', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('170', '2', '5', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('171', '3', '5', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('172', '4', '5', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('173', '5', '5', '5', '0', '0', '1');
+INSERT INTO `t_nilai_alternatif` VALUES ('174', '6', '5', '5', '0', '0', '9');
+INSERT INTO `t_nilai_alternatif` VALUES ('175', '1', '6', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('176', '2', '6', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('177', '3', '6', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('178', '4', '6', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('179', '5', '6', '5', '0', '0', '0.111');
+INSERT INTO `t_nilai_alternatif` VALUES ('180', '6', '6', '5', '0', '0', '1');
+
+-- ----------------------------
+-- Table structure for t_nilai_alternatif_copy
+-- ----------------------------
+DROP TABLE IF EXISTS `t_nilai_alternatif_copy`;
+CREATE TABLE `t_nilai_alternatif_copy` (
+  `Id` int(5) NOT NULL AUTO_INCREMENT,
+  `IdAlternatif` varchar(5) NOT NULL,
+  `IdAlternatif2` varchar(5) NOT NULL,
   `IdKriteria` varchar(5) NOT NULL,
   `Pencapaian` double NOT NULL,
   `NilaiPencapaian` double NOT NULL,
@@ -124,38 +324,38 @@ CREATE TABLE `t_nilai_alternatif` (
 ) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
--- Records of t_nilai_alternatif
+-- Records of t_nilai_alternatif_copy
 -- ----------------------------
-INSERT INTO `t_nilai_alternatif` VALUES ('1', '1', '1', '23', '0.958', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('2', '2', '1', '24', '1', '9');
-INSERT INTO `t_nilai_alternatif` VALUES ('3', '3', '1', '21', '0.875', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('4', '4', '1', '24', '1', '9');
-INSERT INTO `t_nilai_alternatif` VALUES ('5', '5', '1', '24', '1', '9');
-INSERT INTO `t_nilai_alternatif` VALUES ('6', '6', '1', '24', '1', '9');
-INSERT INTO `t_nilai_alternatif` VALUES ('7', '1', '2', '177000000', '0.885', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('8', '2', '2', '194000000', '0.97', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('9', '3', '2', '148000000', '0.74', '6');
-INSERT INTO `t_nilai_alternatif` VALUES ('10', '4', '2', '173000000', '0.865', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('11', '5', '2', '167000000', '0.835', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('12', '6', '2', '181000000', '0.905', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('13', '1', '3', '4', '0.571', '4');
-INSERT INTO `t_nilai_alternatif` VALUES ('14', '2', '3', '5', '0.714', '6');
-INSERT INTO `t_nilai_alternatif` VALUES ('15', '3', '3', '6', '0.857', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('16', '4', '3', '4', '0.571', '4');
-INSERT INTO `t_nilai_alternatif` VALUES ('17', '5', '3', '4', '0.571', '4');
-INSERT INTO `t_nilai_alternatif` VALUES ('18', '6', '3', '5', '0.714', '6');
-INSERT INTO `t_nilai_alternatif` VALUES ('19', '1', '4', '277', '0.989', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('20', '2', '4', '264', '0.942', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('21', '3', '4', '263', '0.939', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('22', '4', '4', '259', '0.925', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('23', '5', '4', '270', '0.964', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('24', '6', '4', '222', '0.792', '6');
-INSERT INTO `t_nilai_alternatif` VALUES ('25', '1', '5', '467', '0.934', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('26', '2', '5', '459', '0.918', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('27', '3', '5', '440', '0.88', '7');
-INSERT INTO `t_nilai_alternatif` VALUES ('28', '4', '5', '488', '0.976', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('29', '5', '5', '474', '0.948', '8');
-INSERT INTO `t_nilai_alternatif` VALUES ('30', '6', '5', '469', '0.938', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('1', '1', '', '1', '23', '0.958', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('2', '2', '', '1', '24', '1', '9');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('3', '3', '', '1', '21', '0.875', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('4', '4', '', '1', '24', '1', '9');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('5', '5', '', '1', '24', '1', '9');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('6', '6', '', '1', '24', '1', '9');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('7', '1', '', '2', '177000000', '0.885', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('8', '2', '', '2', '194000000', '0.97', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('9', '3', '', '2', '148000000', '0.74', '6');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('10', '4', '', '2', '173000000', '0.865', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('11', '5', '', '2', '167000000', '0.835', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('12', '6', '', '2', '181000000', '0.905', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('13', '1', '', '3', '4', '0.571', '4');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('14', '2', '', '3', '5', '0.714', '6');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('15', '3', '', '3', '6', '0.857', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('16', '4', '', '3', '4', '0.571', '4');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('17', '5', '', '3', '4', '0.571', '4');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('18', '6', '', '3', '5', '0.714', '6');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('19', '1', '', '4', '277', '0.989', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('20', '2', '', '4', '264', '0.942', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('21', '3', '', '4', '263', '0.939', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('22', '4', '', '4', '259', '0.925', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('23', '5', '', '4', '270', '0.964', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('24', '6', '', '4', '222', '0.792', '6');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('25', '1', '', '5', '467', '0.934', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('26', '2', '', '5', '459', '0.918', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('27', '3', '', '5', '440', '0.88', '7');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('28', '4', '', '5', '488', '0.976', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('29', '5', '', '5', '474', '0.948', '8');
+INSERT INTO `t_nilai_alternatif_copy` VALUES ('30', '6', '', '5', '469', '0.938', '8');
 
 -- ----------------------------
 -- Table structure for t_nilai_kriteria
@@ -218,12 +418,12 @@ INSERT INTO `t_nilai_kriteria_tfn` VALUES ('2', '2', '1', 'L', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('3', '3', '1', 'L', '0.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('4', '4', '1', 'L', '0.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('5', '5', '1', 'L', '0.5');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('6', '1', '1', 'L', '3');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('6', '1', '1', 'L', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('7', '2', '1', 'M', '1.5');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('8', '1', '1', 'M', '0');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('8', '1', '1', 'M', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('9', '4', '1', 'M', '0.667');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('10', '5', '1', 'M', '0.667');
-INSERT INTO `t_nilai_kriteria_tfn` VALUES ('11', '1', '1', 'U', '0');
+INSERT INTO `t_nilai_kriteria_tfn` VALUES ('11', '1', '1', 'U', '1');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('12', '2', '1', 'U', '2');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('13', '3', '1', 'U', '1.5');
 INSERT INTO `t_nilai_kriteria_tfn` VALUES ('14', '4', '1', 'U', '1');

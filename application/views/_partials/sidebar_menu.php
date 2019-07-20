@@ -23,19 +23,22 @@
 								</h4>
 								<i class="m-menu__section-icon flaticon-more-v3"></i>
 							</li>
-
+							<!-- 
 							<li class="m-menu__item  m-menu__item--active" aria-haspopup="true" >
-								<a  href="<?php echo site_url('/MstrInsentif') ?>" class="m-menu__link ">
-									<i class="m-menu__link-icon flaticon-line-graph"></i>
-									<span class="m-menu__link-title">
-										<span class="m-menu__link-wrap">
-											<span class="m-menu__link-text">
-												Insentif
-											</span>											
-										</span>
-									</span>
-								</a>
-							</li>
+															<a  href="<?php echo site_url('/MstrInsentif') ?>" class="m-menu__link ">
+																<i class="m-menu__link-icon flaticon-line-graph"></i>
+																<span class="m-menu__link-title">
+																	<span class="m-menu__link-wrap">
+																		<span class="m-menu__link-text">
+																			Insentif
+																		</span>											
+																	</span>
+																</span>
+															</a>
+														</li>
+
+							-->
+							
 							
 							<li class="m-menu__item  m-menu__item--submenu" aria-haspopup="true"  m-menu-submenu-toggle="hover">
 								<a  href="javascript:;" class="m-menu__link m-menu__toggle">

@@ -5,6 +5,7 @@ class t_nilai_alternatif_model extends CI_Model
     public $id;
     public $IdKriteria;
     public $IdAlternatif;
+    public $IdAlternatif2;
     public $pencapaian;
     public $NilaiPencapaian;
     public $NilaiBobot;
@@ -25,12 +26,40 @@ class t_nilai_alternatif_model extends CI_Model
             'label' => 'IdAlternatif',
             'rules' => 'required'],
 
+            ['field' => 'IdAlternatif2',
+            'label' => 'IdAlternatif2',
+            'rules' => 'required'],
+
+
             ['field' => 'pencapaian',
             'label' => 'pencapaian',
             'rules' => 'required']
         ];
     }
 
+
+    public function getJumlahKolom()
+    {
+        $this->db->select('IdKriteria, IdAlternatif2, SUM(NilaiBobot) AS Jumlah ');
+        $this->db->from($this->_table);
+        $this->db->group_by('IdKriteria');
+        $this->db->group_by('IdAlternatif2');
+        return $this->db->get()->result();
+
+        //SELECT IdKriteria, IdAlternatif, SUM(NilaiBobot) AS Jumlah FROM t_nilai_alternatif GROUP BY IdKriteria,IdAlternatif
+    }
+
+    public function getAllOrderByAlternatif()
+    {
+        $this->db->from($this->_table);
+        $this->db->order_by("IdKriteria","asc");
+        $this->db->order_by("IdAlternatif","asc");
+        $this->db->order_by("IdAlternatif2","asc");
+        return $this->db->get()->result();
+
+        //SELECT * FROM t_nilai_alternatif  ORDER BY IdKriteria,IdAlternatif,IdAlternatif2,
+    }
+        
     public function getAllOrderBy()
     {
         $this->db->from($this->_table);

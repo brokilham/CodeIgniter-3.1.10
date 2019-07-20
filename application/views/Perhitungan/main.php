@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
                                         <li class="m-portlet__nav-item">
-											<a  id="btnHitung" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+											<a  href="<?php echo site_url('/PerhitunganHasil') ?>"  class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
