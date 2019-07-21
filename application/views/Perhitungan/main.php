@@ -76,7 +76,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-tools">
 									<ul class="m-portlet__nav">
                                         <li class="m-portlet__nav-item">
-											<a  href="<?php echo site_url('/PerhitunganHasil') ?>"  class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+											<a  Id="btnHitung"  class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 												<span>
 													<i class="la la-plus"></i>
 													<span>
@@ -585,7 +585,7 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="m-portlet__body">
 								<!--begin: Datatable -->
-								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="table_bobot_vektor">
 									<thead>
 										<tr>
 											<th>Kriteria</th>	
@@ -602,7 +602,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<td><?php echo  "K".$mstr_kriteria->Id; ?> </td>
 											<td><?php echo $min_sum_of_degree[$i]?> </td>
 											<td><?php echo $tot_min_sum_of_degree?></td>
-											<td><?php echo $min_sum_of_degree[$i]/$tot_min_sum_of_degree?></td>
+											<td class="tdvalue"><?php echo $min_sum_of_degree[$i]/$tot_min_sum_of_degree?></td>
 										</tr>										 		
 										<?php
 										$i++;
@@ -642,12 +642,11 @@ License: You must have a valid license purchased only from themeforest(the above
 
 
         $(document).on('click', '#btnHitung', function() { // menampilkan form modal update email
-            var rows = [];
-			
-			
+            var SelectedKriteria = [];
+
 			$("#tableData tr").each(function() {
                 $tr = $(this);
-				var row = [];
+				//var SelectedKriteria = [];
 				var checkboxAlternatif = false;
                 $tr.find(".tdvalue").each(function(){             
                     if($(this).children().prop('tagName')=="INPUT"){										
@@ -657,51 +656,63 @@ License: You must have a valid license purchased only from themeforest(the above
 						if(checkboxAlternatif ===  true)
 						{
 							var iDalternatif = $(this).text().split("-");
-                        	alert(iDalternatif[1]);
+							SelectedKriteria.push(iDalternatif[1]);
+                        	//alert(iDalternatif[1]);
 						}				
+                    }                                
+                });
+			})
+			var WlocalValue = [];
+
+			$("#table_bobot_vektor tr").each(function() {
+                $tr = $(this);
+				//var SelectedKriteria = [];
+				var checkboxAlternatif = false;
+                $tr.find(".tdvalue").each(function(){    
+					WlocalValue.push($(this).text());
+					//alert($(this).text());         
+                    /*if($(this).children().prop('tagName')=="INPUT"){										
+						 checkboxAlternatif = $(this).find("input[type=checkbox]").is(":checked")					
                     }
-                  
-                   
+                    else {
+						if(checkboxAlternatif ===  true)
+						{
+							var iDalternatif = $(this).text().split("-");
+							SelectedKriteria.push(iDalternatif[1]);
+                        	//alert(iDalternatif[1]);
+						}				
+                    } */                               
                 });
 			})
 			
-			$.ajax({
-				url:'<?=base_url()?>/HasilPerhitungan',
-				method: 'get',
-				//data: {username: username},
-				//dataType: 'json',
+			
+			if(SelectedKriteria.length >=2){
+				$.ajax({
+				url:'<?=base_url()?>PerhitunganHasil/setData',
+				method: 'POST',
+				data: {SelectedKriteria: SelectedKriteria,WlocalValue :WlocalValue},
+				dataType: 'json',
 				success: function(response){
-				/*var len = response.length;
-
-				if(len > 0){
-				
-				var uname = response[0].username;
-				var name = response[0].name;
-				var email = response[0].email;
-			
-				$('#suname').text(uname);
-				$('#sname').text(name);
-				$('#semail').text(email);
-			
-				}else{
-				$('#suname').text('');
-				$('#sname').text('');
-				$('#semail').text('');
-				}*/
-			
+					var len = response;
+					//alert(len);
+					window.location = response.url;
+				},
+				error: function(response)
+				{
+					var len = response;
 				}
 			});
+		
 
             //alert("tes");
             //parseDataFromTbl();
+			}
+			else{
+				alert("Pilih setidaknya dua alternatif yang akan di hitung!!!");
+			}
+		
         });
 
-
-        function parseDataFromTbl()
-        {
-
-        };
-      
 
     });
 

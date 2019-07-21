@@ -64,7 +64,7 @@ License: You must have a valid license purchased only from themeforest(the above
 					</div>
 					<!-- END: Subheader -->
 					<div class="m-content">
-                        <?php $idx_data_nilai = 0; $idx_data_nilai_jum = 0; $idx_data_nilai_bagi = 0; $variabeltampungnilaiterakhir = 0;?>
+                        <?php $idx_data_nilai = 0; $idx_data_nilai_jum = 0; $idx_data_nilai_bagi = 0; $variabeltampungnilaiterakhir = 0; $arr_data_jum = array();?>
                         <?php foreach ($mstr_kriterias as $mstr_kriteria): ?>
                             <div class="m-portlet m-portlet--mobile">
                                 <div class="m-portlet__head">
@@ -78,7 +78,8 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="m-portlet__head-tools">                                    						
                                     </div>
                                 </div>
-                                <div class="m-portlet__body">                            
+                                <div class="m-portlet__body">  
+                                <?php //print_r($listIdAlternatif);?>                        
                                     <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
                                         <thead>
                                             <tr>
@@ -119,7 +120,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                            </tr>
                                         </tfoot>
                                     </table>
-
+                                   <?php $array_jum_satuan_table = array(); ?>
                                     <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
                                         <thead>
                                             <tr>
@@ -147,11 +148,12 @@ License: You must have a valid license purchased only from themeforest(the above
                                                         <?php $idx_data_nilai_bagi++; 
                                                              $idx_data_nilai_jum_bagi2 = $idx_data_nilai_jum_bagi++; $jumsamping = $hasilbagi+$jumsamping;?>
                                                     <?php endfor;  ?> 
-                                                    <td><?php echo $jumsamping; ?></td>                                                                                                             
+                                                    <td><?php echo $jumsamping;  $array_jum_satuan_table[] = $jumsamping;?></td>                                                                                                             
                                                 </tr>  
                                             <?php endforeach;  $variabeltampungnilaiterakhir = $idx_data_nilai_jum_bagi2+1;?>  
                                         </tbody>                                   
                                     </table>
+                                    <?php $arr_data_jum[] = $array_jum_satuan_table?>
                                 </div>
                             </div>	
                         <?php endforeach; ?>   
@@ -185,15 +187,131 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <tbody>	
                                         <tr>
                                             <td>Alternatif</td>
+                                            <?php foreach ($dataWLocals as $dataWLocal): ?>
+                                                <td><?php echo $dataWLocal ?></td>
+                                            <?php endforeach;?>            
                                         </tr>	
-                                        <?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>		
-                                          							
+                                        <?php 
+                                        $idx_data_bobot=0;
+                                        foreach ($mstr_alternatifs as $mstr_alternatif): ?>		          							
                                             <tr> 
                                                 <td>
                                                     <?php echo "A".$mstr_alternatif->Id ?> 
                                                 </td>
+                                                <?php 
+                                             
+                                                foreach ($arr_data_jum as $arr_data_jum_satuan):?> 
+                                                    <td><?php echo $arr_data_jum_satuan[$idx_data_bobot]?></td>                      
+                                                <?php endforeach; $idx_data_bobot++; ?>                                     
                                             </tr>
                                         <?php endforeach;?>							
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                        
+                                        </tr>
+                                    </tfoot>
+                                </table>                                   
+                            </div>
+                        </div>
+
+                         <div class="m-portlet m-portlet--mobile">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Hasil Akhir Pembobotan
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">                                    						
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">                            
+                                <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+                                    <thead>
+                                        <tr>
+                                            <td> </td>
+                                            <td colspan = "5">Kriteria</td>
+                                        </tr>
+                                        <tr> 
+                                            <td> </td>
+                                            <?php foreach ($mstr_kriterias as $mstr_kriteria): ?>
+                                                <td><?php echo $mstr_kriteria->Description." (K".$mstr_kriteria->Id.")"?></td>
+                                            <?php endforeach;?>
+                                        </tr>
+                                    </thead>
+                                    <tbody>	         
+                                        <?php 
+                                        $arr_jum_hasil_akhir = array();
+                                        $arr_jum_hasil_akhir_ass = array();
+                                        $idx_data_bobot=0;
+                                        foreach ($mstr_alternatifs as $mstr_alternatif): ?>		          							
+                                            <tr> 
+                                                <td>
+                                                    <?php  echo "A".$mstr_alternatif->Id ?> 
+                                                </td>
+                                                <?php 
+                                                $idx_nilai_alt = 0; $jumlah = 0;
+                                                foreach ($arr_data_jum as $arr_data_jum_satuan):?> 
+                                                    <td>
+                                                        <?php 
+                                                        $jumlah += $arr_data_jum_satuan[$idx_data_bobot]*$dataWLocals[$idx_nilai_alt];
+                                                        echo $arr_data_jum_satuan[$idx_data_bobot]*$dataWLocals[$idx_nilai_alt]?>
+                                                    </td>                      
+                                                <?php  $idx_nilai_alt++;
+                                                endforeach; 
+                                                $idx_data_bobot++; 
+                                                $arr_jum_hasil_akhir_ass[$mstr_alternatif->Id] = $jumlah;
+                                                $arr_jum_hasil_akhir[] = $jumlah; ?>                                     
+                                            </tr>
+                                        <?php endforeach;?>							
+                                    </tbody>
+                                    <tfoot>
+                                        <tr>
+                                        
+                                        </tr>
+                                    </tfoot>
+                                </table>                                   
+                            </div>
+                        </div>	 
+
+                        <div class="m-portlet m-portlet--mobile">
+                            <div class="m-portlet__head">
+                                <div class="m-portlet__head-caption">
+                                    <div class="m-portlet__head-title">
+                                        <h3 class="m-portlet__head-text">
+                                            Hasil Perangkingan
+                                        </h3>
+                                    </div>
+                                </div>
+                                <div class="m-portlet__head-tools">                                    						
+                                </div>
+                            </div>
+                            <div class="m-portlet__body">  
+                             <?php arsort($arr_jum_hasil_akhir_ass)?>                          
+                                <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+                                    <thead>
+                                        <tr>
+                                            <th>Nama</th>
+                                            <th>Hasil Akhir</th>
+                                            <th>Rangking</th>
+                                        </tr>                                       
+                                    </thead>
+                                    <tbody>	
+                                        <?php 
+                                        $rank = 1;
+                                        foreach ($arr_jum_hasil_akhir_ass as $x => $x_value): ?>		          							
+                                            <tr> 
+                                                <td>
+                                                    <?php echo "A".$x ?> 
+                                                </td>
+                                                <td><?php echo $x_value ?></td>
+                                                <td><?php echo $rank?></td>                                                                                 
+                                            </tr>
+                                        <?php 
+                                        $rank++;
+                                        endforeach;?>							
                                     </tbody>
                                     <tfoot>
                                         <tr>

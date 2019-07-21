@@ -46,7 +46,4 @@ class PerhitunganController extends CI_Controller {
        
         $this->load->view('Perhitungan/main',$data);       
     } 
-
-    
-
 }

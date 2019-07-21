@@ -49,6 +49,33 @@ class t_nilai_alternatif_model extends CI_Model
         //SELECT IdKriteria, IdAlternatif, SUM(NilaiBobot) AS Jumlah FROM t_nilai_alternatif GROUP BY IdKriteria,IdAlternatif
     }
 
+    public function getJumlahKolomWithCondition($conditonId)
+    {
+        $this->db->select('IdKriteria, IdAlternatif2, SUM(NilaiBobot) AS Jumlah ');
+        $this->db->from($this->_table);
+        $this->db->where_in('IdAlternatif', $conditonId);
+        $this->db->group_by('IdKriteria');
+        $this->db->group_by('IdAlternatif2');
+        return $this->db->get()->result();
+
+        //SELECT IdKriteria, IdAlternatif, SUM(NilaiBobot) AS Jumlah FROM t_nilai_alternatif GROUP BY IdKriteria,IdAlternatif
+    }
+
+    public function getAllOrderByAlternatifWithCondition($conditonId)
+    {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where_in('IdAlternatif', $conditonId);
+        $this->db->where_in('IdAlternatif2', $conditonId);
+       // and IdAlternatif2 IN (1,2)
+        $this->db->order_by("IdKriteria","asc");
+        $this->db->order_by("IdAlternatif","asc");
+        $this->db->order_by("IdAlternatif2","asc");
+        return $this->db->get()->result();
+
+        //SELECT * FROM t_nilai_alternatif  WHERE IdAlternatif IN ($conditonId) ORDER BY IdKriteria,IdAlternatif,IdAlternatif2,
+    }
+
     public function getAllOrderByAlternatif()
     {
         $this->db->from($this->_table);

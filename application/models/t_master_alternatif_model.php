@@ -19,6 +19,15 @@ class t_master_alternatif_model extends CI_Model
         ];
     }
 
+
+    public function getWhereIn($conditonId)
+    {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where_in('Id', $conditonId);
+        return $this->db->get()->result();     
+    }
+
     public function getAll()
     {
         return $this->db->get($this->_table)->result();

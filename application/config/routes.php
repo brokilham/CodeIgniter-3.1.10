@@ -77,7 +77,8 @@ $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
 
 $route['Perhitungan'] = 'PerhitunganController/main';
 
-$route['PerhitunganHasil'] = 'PerhitunganHasilController/main';
+$route['PerhitunganHasil/(:any)/(:any)'] = 'PerhitunganHasilController/main/$1/$2';
+$route['PerhitunganHasil/setData'] = 'PerhitunganHasilController/setData';
 
 
 // tes 123
