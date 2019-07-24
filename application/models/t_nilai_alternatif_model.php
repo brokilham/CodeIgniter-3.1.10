@@ -159,5 +159,11 @@ class t_nilai_alternatif_model extends CI_Model
     }
     
 
-         
+    public function delete($id_alternatif)
+    {      
+        $this->db->where("IdAlternatif",$id_alternatif);
+        $this->db->or_where("IdAlternatif2",$id_alternatif);
+        return $this->db->delete($this->_table,$this);
+    }
+
 }
