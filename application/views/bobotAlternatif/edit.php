@@ -57,7 +57,7 @@ License: You must have a valid license purchased only from themeforest(the above
 						<div class="d-flex align-items-center">
 							<div class="mr-auto">
 								<h3 class="m-subheader__title ">
-									Bobot Kriteria
+									Bobot Alternatif
 								</h3>
 							</div>						
 						</div>						
@@ -69,27 +69,14 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-caption">
 									<div class="m-portlet__head-title">
 										<h3 class="m-portlet__head-text">
-											Tabel Bobot Kriteria
+											Ubah Bobot Alternatif
 										</h3>
 									</div>
-								</div>                            
-                                <div class="m-portlet__head-tools">
-									<ul class="m-portlet__nav">
-										<li class="m-portlet__nav-item">
-											<a href="<?php echo site_url('/BobotKriteria/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
-												<span>
-													<i class="la la-plus"></i>
-													<span>
-														Simpan
-													</span>
-												</span>
-											</a>
-										</li>							
-									</ul>
-								</div>	   													
+								</div>                                	   													
 							</div>
 							<div class="m-portlet__body">
-								<!--begin: Datatable -->										
+								<!--begin: Datatable -->
+		  						<form action="<?php echo base_url('BobotKriteria/edit_action')?>" method="POST">
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
@@ -99,21 +86,34 @@ License: You must have a valid license purchased only from themeforest(the above
                                         </tr>
 									</thead>
 									<tbody>		
-										<?php foreach ($data_nilai_kriterias as $data_nilai_kriteria):?>
-										<tr>
-                                            <td><?php echo $data_nilai_kriteria->Kriteria1?></td>
-                                            <td>
-												<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Pilih Himpunan Hirarki">
-													<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
-													  <option value="<?php echo $mstr_skala_tfn->Value?>" <?php $mstr_skala_tfn->Id ==  $data_nilai_kriteria->IdTfn ? "selected" : ""; ?>><?php echo $mstr_skala_tfn->Value."-".$mstr_skala_tfn->Deskripsi?></option>																								
-													<?php endforeach; ?>
-												</select>
-											</td>
-                                            <td><?php echo $data_nilai_kriteria->Kriteria2?></td>
-                                        </tr>	
-										<?php endforeach; ?>				
+		  								<tr>
+										  <td>
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Pertama" id="slc_kriteria1" name="slc_kriteria1">
+												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
+													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
+												<?php endforeach; ?>
+											</select>
+										  </td>
+										  <td>
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Himpunab Hirarki" id="slc_hirarki" name="slc_hirarki">
+												<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
+													<option value="<?php echo $mstr_skala_tfn->Nilai?>"><?php echo round($mstr_skala_tfn->Nilai,2)."-".$mstr_skala_tfn->Deskripsi?></option>																								
+												<?php endforeach; ?>
+											</select>
+										  </td>
+										  <td>
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Kedua" id="slc_kriteria2" name="slc_kriteria2">
+												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
+													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
+												<?php endforeach; ?>
+											</select>
+										  </td>
+										  <td>
+										  	<button type="submit" class="btn btn-success" id="btn_simpan">Simpan</button></td>
+										</tr>
 									</tbody>
 								</table>
+								</form>
 							</div>
 						</div>
 						<!-- END EXAMPLE TABLE PORTLET-->

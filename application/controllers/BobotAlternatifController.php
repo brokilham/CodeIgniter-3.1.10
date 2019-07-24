@@ -24,6 +24,11 @@ class BobotAlternatifController extends CI_Controller {
 		$this->load->view('bobotAlternatif/main.php',$data);
 	}
 
+	public function edit()
+	{
+		$this->load->view('bobotAlternatif/edit.php');
+	}
+
 
 	
 }
