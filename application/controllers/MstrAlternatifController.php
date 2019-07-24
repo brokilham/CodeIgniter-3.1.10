@@ -145,7 +145,7 @@ class MstrAlternatifController extends CI_Controller {
 		if (!isset($id)) show_404();
 			
 			if ($this->t_master_alternatif_model->delete($id)) {
-
+				$this->t_nilai_alternatif_model->delete($id);
 				redirect(site_url('MstrAlternatif'));
 			}
 
