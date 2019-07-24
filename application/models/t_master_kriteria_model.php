@@ -46,13 +46,22 @@ class t_master_kriteria_model extends CI_Model
         return $this->db->get()->result();
     }
 
-    public function save()
+
+    public function save($id,$description)
+    {
+    
+        $this->Id = $id;
+        $this->Description = $description;
+        $this->db->insert($this->_table, $this);
+    }
+
+    /*public function save()
     {
         $post = $this->input->post();
         $this->Id = $post["Id"];
         $this->Description = $post["Description"];
         $this->db->insert($this->_table, $this);
-    }
+    }*/
 
     public function update()
     {

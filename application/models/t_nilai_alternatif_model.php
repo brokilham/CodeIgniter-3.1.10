@@ -133,11 +133,14 @@ class t_nilai_alternatif_model extends CI_Model
         //select * from t_nilai_kriteria order by IdKriteria1, IdKriteria2
     }
 
-    public function save($IdKriteria1,$IdKriteria2,$IdTfn) //<--- function ini apakah dipakai? karena saaya liat masih salah, parameternya?
+    public function save($id_alternatif,$id_alternatif2,$id_kriteria)//<--- function ini apakah dipakai? karena saaya liat masih salah, parameternya?
     {
-        $this->IdKriteria = $IdKriteria;
-        $this->IdAlternatif = $IdAlternatif;
-        $this->pencapaian = $pencapaian;
+        $this->IdAlternatif = $id_alternatif;
+        $this->IdAlternatif2 = $id_alternatif2;
+        $this->IdKriteria = $id_kriteria;
+        $this->Pencapaian = 0;
+        $this->NilaiPencapaian = 0;
+        $this->NilaiBobot = 5;
         $this->db->insert($this->_table, $this);
     }
 

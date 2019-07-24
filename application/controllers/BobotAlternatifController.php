@@ -25,7 +25,7 @@ class BobotAlternatifController extends CI_Controller {
 
 	public function edit($idKriteria,$descKriteria)
 	{
-		$data["mstr_skala_tfns"] = $this->t_master_himpunan_linguistik_model->getAllKebalikan();
+		$data["mstr_skala_tfns"] = $this->t_master_himpunan_linguistik_model->getAllHimpunanLinguistik();
 		$data["mstr_alternatifs"] = $this->t_master_alternatif_model->getAll();
 		$data["nilai_alternatifs"] = $this->t_nilai_alternatif_model->getAllOrderByAlternatifWithIdKriteria($idKriteria);
 		$data["descKriteria"] = $descKriteria;

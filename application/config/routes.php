@@ -56,6 +56,7 @@ $route['translate_uri_dashes'] = FALSE;
 
 $route['MstrAlternatif'] = 'MstrAlternatifController'; // sudah jalan
 $route['MstrAlternatif/add'] = 'MstrAlternatifController/add'; // sudah jalan
+$route['MstrAlternatif/add_action'] = 'MstrAlternatifController/add_action'; // sudah jalan
 $route['MstrAlternatif/edit/(:any)'] = 'MstrAlternatifController/edit/$1'; // sudah jalan
 $route['MstrAlternatif/delete/(:any)'] = 'MstrAlternatifController/delete/$1'; // sudah jalan
 

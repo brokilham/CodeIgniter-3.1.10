@@ -98,7 +98,7 @@ License: You must have a valid license purchased only from themeforest(the above
 									</div>
 								</div>
 								<!--begin::Form-->
-								<form action="<?php echo base_url('/MstrAlternatif/add') ?>" method="post" class="m-form m-form--fit m-form--label-align-right">
+								<form action="<?php echo base_url('/MstrAlternatif/add_action') ?>" method="POST" class="m-form m-form--fit m-form--label-align-right">
 									<div class="m-portlet__body">
 										<div class="form-group m-form__group">
 											<label>

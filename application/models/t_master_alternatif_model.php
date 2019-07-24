@@ -19,6 +19,12 @@ class t_master_alternatif_model extends CI_Model
         ];
     }
 
+    public function getCount()
+    {
+        $this->db->select("Count(Id) AS count_data");
+        $this->db->from($this->_table);
+        return $this->db->get()->result();
+    }
 
     public function getWhereIn($conditonId)
     {
