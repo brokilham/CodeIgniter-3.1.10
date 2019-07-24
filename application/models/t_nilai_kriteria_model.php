@@ -70,6 +70,13 @@ class t_nilai_kriteria_model extends CI_Model
         //select * from t_nilai_kriteria order by IdKriteria1, IdKriteria2
     }
 
+    public function delete($id_kriteria)
+    {      
+        $this->db->where("IdKriteria1",$id_kriteria);
+        $this->db->or_where("IdKriteria2",$id_kriteria);
+        return $this->db->delete($this->_table,$this);
+    }
+
     public function getDataNilaiKriteria()
     {
         // dari referensi https://stackoverflow.com/questions/55628778/write-query-with-subquery-in-codeigniter-query-builder

@@ -87,6 +87,13 @@ class t_nilai_kriteria_tfn_model extends CI_Model
    
     }
 
+    public function delete($id_kriteria)
+    {      
+        $this->db->where("IdKriteria1",$id_kriteria);
+        $this->db->or_where("IdKriteria2",$id_kriteria);
+        return $this->db->delete($this->_table,$this);
+    }
+
 
     public function update($Id,$IdKriteria1,$IdKriteria2,$Tfn,$NilaiBobotTfn)
     {

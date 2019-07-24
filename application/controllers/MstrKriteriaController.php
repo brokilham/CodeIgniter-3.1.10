@@ -10,6 +10,9 @@ class MstrKriteriaController extends CI_Controller {
 		$this->load->database();  
 		$this->load->model("t_master_kriteria_model");
 		$this->load->model("t_nilai_kriteria_model");
+		$this->load->model("t_nilai_kriteria_tfn_model");
+		$this->load->model("t_nilai_alternatif_model");
+
 		$this->load->library('form_validation');
 		
     }
@@ -101,7 +104,9 @@ class MstrKriteriaController extends CI_Controller {
 		if (!isset($id)) show_404();
 			
 			if ($this->t_master_kriteria_model->delete($id)) {
-
+				$this->t_nilai_kriteria_model->delete($id);
+				$this->t_nilai_kriteria_tfn_model->delete($id);
+				$this->t_nilai_alternatif_model->delete_by_kriteria($id);
 				redirect(site_url('MstrKriteria'));
 			}
 

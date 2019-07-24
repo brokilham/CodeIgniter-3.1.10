@@ -112,12 +112,6 @@ License: You must have a valid license purchased only from themeforest(the above
 											</label>
 											<input type="text" class="form-control m-input m-input--square" id="Description" name="Description" placeholder="Masukkan Nama Kriteria"  value="<?php echo $mstr_kriteria->Description?>">
 										</div>
-										<div class="form-group m-form__group">
-											<label>
-												Target Kriteria
-											</label>
-											<input type="text" class="form-control m-input m-input--square" id="Nilai_target" name="Nilai_target" placeholder="Masukkan Nilai Target"  value="<?php echo $mstr_kriteria->nilai_target?>">
-										</div>								
 									</div>
 									<div class="m-portlet__foot m-portlet__foot--fit">
 										<div class="m-form__actions">

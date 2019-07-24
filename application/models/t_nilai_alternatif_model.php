@@ -166,4 +166,10 @@ class t_nilai_alternatif_model extends CI_Model
         return $this->db->delete($this->_table,$this);
     }
 
+    public function delete_by_kriteria($id_kriteria)
+    {      
+        $this->db->where("IdAlternatif",$id_kriteria);
+        return $this->db->delete($this->_table,$this);
+    }
+
 }
