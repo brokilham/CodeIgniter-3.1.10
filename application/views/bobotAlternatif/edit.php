@@ -76,35 +76,40 @@ License: You must have a valid license purchased only from themeforest(the above
 							</div>
 							<div class="m-portlet__body">
 								<!--begin: Datatable -->
-		  						<form action="<?php echo base_url('BobotKriteria/edit_action')?>" method="POST">
+		  						<form action="<?php echo base_url('BobotAlternatif/edit_action')?>" method="POST">
 								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
 									<thead>
 										<tr>
-                                          <th>Kriteria Pertama</th>
-                                          <th>Himpunan Hirarki</th>
-                                          <th>Kriteria Kedua</th>
+										  <th>Id Kriteria</th>
+                                          <th>Alternatif Pertama</th>
+                                          <th>Himpunan Linguistik</th>
+                                          <th>Alternatif Kedua</th>
                                         </tr>
 									</thead>
 									<tbody>		
 		  								<tr>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Pertama" id="slc_kriteria1" name="slc_kriteria1">
-												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
-													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
+		  									<input type = "text" value = "<?php echo $idKriteria?>" readonly class="form-control" id="txt_kriteria" name="txt_kriteria"/> 
+											<input type = "hidden" value = "<?php echo $descKriteria?>" readonly class="form-control" id="txt_descKriteria" name="txt_descKriteria"/> 
+										  </td>
+										  <td>
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Alternatif Pertama" id="slc_alternatif1" name="slc_alternatif1">
+												<?php foreach ($mstr_alternatifs as $mstr_alternatif):?>												 		
+													<option value="<?php echo $mstr_alternatif->Id?>"><?php echo "A".$mstr_alternatif->Id."-".$mstr_alternatif->Description?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Himpunab Hirarki" id="slc_hirarki" name="slc_hirarki">
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Himpunan Linguistik" id="slc_himpunan" name="slc_himpunan">
 												<?php foreach ($mstr_skala_tfns as $mstr_skala_tfn):?>												 		
 													<option value="<?php echo $mstr_skala_tfn->Nilai?>"><?php echo round($mstr_skala_tfn->Nilai,2)."-".$mstr_skala_tfn->Deskripsi?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
 										  <td>
-										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Kriteria Kedua" id="slc_kriteria2" name="slc_kriteria2">
-												<?php foreach ($mstr_kriterias as $mstr_kriteria):?>												 		
-													<option value="<?php echo $mstr_kriteria->Id?>"><?php echo "K".$mstr_kriteria->Id."-".$mstr_kriteria->Description?></option>																								
+										  	<select class="form-control m-bootstrap-select m-bootstrap-select--square m_selectpicker" title="Alternatif Kedua" id="slc_alternatif2" name="slc_alternatif2">
+											  <?php foreach ($mstr_alternatifs as $mstr_alternatif):?>												 		
+													<option value="<?php echo $mstr_alternatif->Id?>"><?php echo "A".$mstr_alternatif->Id."-".$mstr_alternatif->Description?></option>																								
 												<?php endforeach; ?>
 											</select>
 										  </td>
@@ -114,6 +119,69 @@ License: You must have a valid license purchased only from themeforest(the above
 									</tbody>
 								</table>
 								</form>
+							</div>
+						</div>
+						<!-- END EXAMPLE TABLE PORTLET-->
+
+						<div class="m-portlet m-portlet--mobile">
+							<div class="m-portlet__head">
+								<div class="m-portlet__head-caption">
+									<div class="m-portlet__head-title">
+										<h3 class="m-portlet__head-text">
+											<?php echo $descKriteria." (K".$idKriteria.")" ?>
+										</h3>
+									</div>
+								</div>
+								<div class="m-portlet__head-tools">
+									<!-- 
+									<ul class="m-portlet__nav">
+										<li class="m-portlet__nav-item">
+											<a href="<?php //echo site_url('/BobotAlternatif/edit/'.$mstr_kriteria->Id) ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
+												<span>
+													<i class="la la-plus"></i>
+													<span>
+														Ubah Bobot
+													</span>
+												</span>
+											</a>
+										</li>							
+									</ul>
+									-->									
+								</div>							
+							</div>
+							<div class="m-portlet__body">
+								<!--begin: Datatable -->
+								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+									<thead>
+										<tr>
+											<th></th>
+											<?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>										
+												<th> <?php echo "A".$mstr_alternatif->Id ?> </th>
+											<?php endforeach;?>
+										</tr>
+									</thead>
+									<tbody>	
+										<?php $count_data = count($mstr_alternatifs); $idx_data_nilai = 0;?>   
+										<?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>
+											<tr>
+												<th>
+													<?php echo "A".$mstr_alternatif->Id ?>
+												</th>  
+												<?php for($i = 0; $i < $count_data; $i++):?>                                                          
+														<td>
+															<?php echo round($nilai_alternatifs[$idx_data_nilai]->NilaiBobot,2) ?>
+														</td>  									                                                       	    
+													<?php $idx_data_nilai++; ?>
+												<?php endfor;?>                                                                                                                                                
+											</tr>  
+										<?php endforeach; ?>  																											
+									</tbody>
+									<tfoot>
+										<tr> 
+										
+										</tr>
+									</tfoot>
+								</table>
 							</div>
 						</div>
 						<!-- END EXAMPLE TABLE PORTLET-->

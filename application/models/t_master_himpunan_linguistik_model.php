@@ -60,5 +60,22 @@ class t_master_himpunan_linguistik_model extends CI_Model
         */     
     }
 
+
+    public function getAllKebalikan()
+    {
+        $this->db->select("*");
+        $this->db->from($this->_table);
+        $this->db->where("Keterangan", "kebalikan");
+        return $this->db->get()->result();
+        
+        /*SELECT
+                *
+            FROM
+                t_master_himpunan_linguistik
+            WHERE
+                Keterangan = 'kebalikan'
+        */     
+    }
+
     
 }

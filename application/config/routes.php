@@ -71,7 +71,8 @@ $route['BobotKriteria/edit_action'] = 'BobotKriteriaController/edit_action'; // 
 $route['BobotKriteria/edit2'] = 'BobotKriteriaController/edit2'; // on progress
 
 $route['BobotAlternatif'] = 'BobotAlternatifController'; // on progress
-$route['BobotAlternatif/edit'] = 'BobotAlternatifController/edit'; // on progress
+$route['BobotAlternatif/edit/(:any)/(:any)'] = 'BobotAlternatifController/edit/$1/$2'; // on progress
+$route['BobotAlternatif/edit_action'] = 'BobotAlternatifController/edit_action'; // on progress
 
 $route['MstrSkalaFuzzy'] = 'MstrSkalaFuzzyController/main';
 

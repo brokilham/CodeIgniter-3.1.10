@@ -63,131 +63,71 @@ License: You must have a valid license purchased only from themeforest(the above
 						</div>						
 					</div>
 					<!-- END: Subheader -->
-					<div class="m-content">					
-						<div class="m-portlet m-portlet--mobile">
-							<div class="m-portlet__head">
-								<div class="m-portlet__head-caption">
-									<div class="m-portlet__head-title">
-										<h3 class="m-portlet__head-text">
-											Tabel Alternatif
-										</h3>
+					<div class="m-content">	
+		  				<?php $idx_data_nilai = 0;?>
+						<?php foreach ($mstr_kriterias as $mstr_kriteria): ?>
+							<div class="m-portlet m-portlet--mobile">
+								<div class="m-portlet__head">
+									<div class="m-portlet__head-caption">
+										<div class="m-portlet__head-title">
+											<h3 class="m-portlet__head-text">
+												<?php echo $mstr_kriteria->Description." (K".$mstr_kriteria->Id.")" ?>
+											</h3>
+										</div>
 									</div>
-								</div>
-								<div class="m-portlet__head-tools">
-									<ul class="m-portlet__nav">
-										<li class="m-portlet__nav-item">
-											<a href="<?php echo site_url('/BobotAlternatif/edit') ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
-												<span>
-													<i class="la la-plus"></i>
+									<div class="m-portlet__head-tools">
+										<ul class="m-portlet__nav">
+											<li class="m-portlet__nav-item">
+												<a href="<?php echo site_url('/BobotAlternatif/edit/'.$mstr_kriteria->Id.'/'.$mstr_kriteria->Description) ?>" class="btn btn-accent m-btn m-btn--custom m-btn--pill m-btn--icon m-btn--air">
 													<span>
-														Ubah Nilai
+														<i class="la la-plus"></i>
+														<span>
+															Ubah Bobot
+														</span>
 													</span>
-												</span>
-											</a>
-										</li>							
-									</ul>
-								</div>							
-							</div>
-							<div class="m-portlet__body">
-								<!--begin: Datatable -->
-								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
-									<thead>
-										<tr>
-										 	<th>
-										 	</th>
-											<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($mstr_kriterias as $mstr_kriteria):?>
-												
-												<th>
-													<?php echo $mstr_kriteria->Description  ?>
-												</th>
-																				
-											<?php  endforeach; ?>																	
-										</tr>
-									</thead>
-									<tbody>		
-											<?php 
-											$count_data = count($mstr_kriterias);
-											$idx_data_nilai =0;
-											foreach ($mstr_alternatifs as $mstr_alternatif):?>
-												<tr>
-													<th>
-														<?php echo $mstr_alternatif->Description ?>
-													</th>
-													
-													<?php for($i = 0; $i < $count_data; $i++):?>											
-													<td>
-														<?php echo $nilai_alternatifs[$idx_data_nilai]->Pencapaian ?>
-													</td>
-													<?php $idx_data_nilai++; ?>
-													<?php endfor;?>	
-												</tr>												
-											<?php  endforeach;?>										 																	
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
-
-					</div>
-					<div class="m-content">					
-						<div class="m-portlet m-portlet--mobile">
-							<div class="m-portlet__head">
-								<div class="m-portlet__head-caption">
-									<div class="m-portlet__head-title">
-										<h3 class="m-portlet__head-text">
-											Nilai Pembobotan Alternatif
-										</h3>
-									</div>
+												</a>
+											</li>							
+										</ul>
+									</div>							
 								</div>
-								<div class="m-portlet__head-tools">
-									
-								</div>							
+								<div class="m-portlet__body">
+									<!--begin: Datatable -->
+									<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
+										<thead>
+                                            <tr>
+                                                <th></th>
+                                                <?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>										
+                                                    <th> <?php echo "A".$mstr_alternatif->Id ?> </th>
+                                                <?php endforeach;?>
+                                            </tr>
+                                        </thead>
+										<tbody>	
+											<?php $count_data = count($mstr_alternatifs);?>   
+											<?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>
+                                                <tr>
+                                                    <th>
+                                                        <?php echo "A".$mstr_alternatif->Id ?>
+                                                    </th>  
+													<?php for($i = 0; $i < $count_data; $i++):?>                                                          
+                                                            <td>
+                                                                <?php echo round($nilai_alternatifs[$idx_data_nilai]->NilaiBobot,2) ?>
+                                                            </td>  									                                                       	    
+                                                        <?php $idx_data_nilai++; ?>
+                                                    <?php endfor;?>                                                                                                                                                
+                                                </tr>  
+                                            <?php endforeach; ?>  																											
+										</tbody>
+										<tfoot>
+											<tr> 
+											
+											</tr>
+										</tfoot>
+									</table>
+								</div>
 							</div>
-							<div class="m-portlet__body">
-								<!--begin: Datatable -->
-								<table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
-									<thead>
-										<tr>
-										 	<th>
-										 	</th>
-											<?php 
-											$count_data2 = count($mstr_kriterias);
-											foreach($mstr_kriterias as $mstr_kriteria):?>
-												
-												<th>
-													<?php echo $mstr_kriteria->Description  ?>
-												</th>
-																				
-											<?php  endforeach; ?>																	
-										</tr>
-									</thead>
-									<tbody>		
-											<?php 
-											$count_data = count($mstr_kriterias);
-											$idx_data_nilai =0;
-											foreach ($mstr_alternatifs as $mstr_alternatif):?>
-												<tr>
-													<th>
-														<?php echo $mstr_alternatif->Description ?>
-													</th>
-													
-													<?php for($i = 0; $i < $count_data; $i++):?>											
-													<td>
-														<?php echo $nilai_bobot_alternatifs[$idx_data_nilai]->NilaiBobot ?>
-													</td>
-													<?php $idx_data_nilai++; ?>
-													<?php endfor;?>	
-												</tr>												
-											<?php  endforeach;?>										 																	
-									</tbody>
-								</table>
-							</div>
-						</div>
-						<!-- END EXAMPLE TABLE PORTLET-->
-
-					</div>
+						<?php endforeach; ?>						
+						<!-- END EXAMPLE TABLE PORTLET-->							
+					</div>								
 				</div>
 			</div>
 			<!-- end:: Body -->

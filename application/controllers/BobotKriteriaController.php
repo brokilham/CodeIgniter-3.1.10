@@ -35,41 +35,6 @@ class BobotKriteriaController extends CI_Controller {
 		$this->load->view('bobotKriteria/edit.php',$data);
 	}
 
-
-	public function edit_actionx($id_kriteria1 = null, $id_kriteria2 =  null, $value_kriteria = null)
-	{
-
-		/*if(($id_kriteria1 != null) && ($id_kriteria2 != null) && ($value_kriteria != null))
-		{
-			$data_nilai_kriteria = $this->t_nilai_kriteria_model->getDataByIdKriteria($id_kriteria1,$id_kriteria2);
-			if($data_nilai_kriteria)
-			{
-				echo "ada data";
-			}
-			else
-			{
-				echo "tidak ada data";
-			}
-		}*/
-		//echo "hello world";
-		/*$output = array('pls' => 1,
-                'msg' => "Password has been sent to given e-mail address"
-          );
-		$this->output->set_content_type('application/json')
-			 ->set_output(json_encode($output));*/
-			 
-			/* $data['result'] = $output = array('pls' => 1,
-			 'msg' => "Password has been sent to given e-mail address"
-	   );*/
-
-			
-			 return $data;
-
-			 echo json_encode($res);
-	}
-
-	
-	
 	public function edit_action() {
 		$id_kriteria1   = $this->input->post('slc_kriteria1');
 		$id_kriteria2   = $this->input->post('slc_kriteria2');
