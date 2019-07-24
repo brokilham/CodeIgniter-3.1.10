@@ -128,7 +128,7 @@ License: You must have a valid license purchased only from themeforest(the above
 								<div class="m-portlet__head-caption">
 									<div class="m-portlet__head-title">
 										<h3 class="m-portlet__head-text">
-											<?php echo $descKriteria." (K".$idKriteria.")" ?>
+											<?php echo str_replace('%20',' ',$descKriteria)." (K".$idKriteria.")" ?>
 										</h3>
 									</div>
 								</div>
