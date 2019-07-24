@@ -71,7 +71,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <div class="m-portlet__head-caption">
                                         <div class="m-portlet__head-title">
                                             <h3 class="m-portlet__head-text">
-                                                Hasil Perhitungan K<?php echo $mstr_kriteria->Id ?>
+                                                Hasil Perhitungan <?php echo $mstr_kriteria->Description." (K".$mstr_kriteria->Id.")" ?>
                                             </h3>
                                         </div>
                                     </div>
@@ -83,7 +83,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
                                         <thead>
                                             <tr>
-                                                <th></th>
+                                                <th><h5>Pembobotan</h5></th>
                                                 <?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>										
                                                     <th> <?php echo "A".$mstr_alternatif->Id ?> </th>
                                                 <?php endforeach;?>
@@ -124,7 +124,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                     <table class="table table-striped- table-bordered table-hover table-checkable" id="m_table_1">
                                         <thead>
                                             <tr>
-                                                <th></th>
+                                                <th><h5>Hasil Perbandingan</h5></th>
                                                 <?php foreach ($mstr_alternatifs as $mstr_alternatif): ?>										
                                                     <th> <?php echo "A".$mstr_alternatif->Id ?> </th>
                                                 <?php endforeach;?>
@@ -188,7 +188,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <tr>
                                             <td>Alternatif</td>
                                             <?php foreach ($dataWLocals as $dataWLocal): ?>
-                                                <td><?php echo $dataWLocal ?></td>
+                                                <td><h6><?php echo round($dataWLocal,3); ?></h6></td>
                                             <?php endforeach;?>            
                                         </tr>	
                                         <?php 
@@ -201,7 +201,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <?php 
                                              
                                                 foreach ($arr_data_jum as $arr_data_jum_satuan):?> 
-                                                    <td><?php echo $arr_data_jum_satuan[$idx_data_bobot]?></td>                      
+                                                    <td><?php echo round($arr_data_jum_satuan[$idx_data_bobot],3);?></td>                      
                                                 <?php endforeach; $idx_data_bobot++; ?>                                     
                                             </tr>
                                         <?php endforeach;?>							
@@ -220,7 +220,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="m-portlet__head-caption">
                                     <div class="m-portlet__head-title">
                                         <h3 class="m-portlet__head-text">
-                                            Hasil Akhir Pembobotan
+                                            Hasil Pembobotan
                                         </h3>
                                     </div>
                                 </div>
@@ -257,7 +257,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                     <td>
                                                         <?php 
                                                         $jumlah += $arr_data_jum_satuan[$idx_data_bobot]*$dataWLocals[$idx_nilai_alt];
-                                                        echo $arr_data_jum_satuan[$idx_data_bobot]*$dataWLocals[$idx_nilai_alt]?>
+                                                        echo round($arr_data_jum_satuan[$idx_data_bobot]*$dataWLocals[$idx_nilai_alt],3);?>
                                                     </td>                      
                                                 <?php  $idx_nilai_alt++;
                                                 endforeach; 
@@ -281,7 +281,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                 <div class="m-portlet__head-caption">
                                     <div class="m-portlet__head-title">
                                         <h3 class="m-portlet__head-text">
-                                            Hasil Perangkingan
+                                            Hasil Prioritas Insentif
                                         </h3>
                                     </div>
                                 </div>
@@ -295,7 +295,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                         <tr>
                                             <th>Nama</th>
                                             <th>Hasil Akhir</th>
-                                            <th>Rangking</th>
+                                            <th>Prioritas</th>
                                         </tr>                                       
                                     </thead>
                                     <tbody>	
@@ -306,7 +306,7 @@ License: You must have a valid license purchased only from themeforest(the above
                                                 <td>
                                                     <?php echo "A".$x ?> 
                                                 </td>
-                                                <td><?php echo $x_value ?></td>
+                                                <td><?php echo round($x_value,3); ?></td>
                                                 <td><?php echo $rank?></td>                                                                                 
                                             </tr>
                                         <?php 
