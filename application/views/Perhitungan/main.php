@@ -464,7 +464,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<?php foreach ($nilai_sintetis as $nilai_sintetisitem): 
 																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria->Id){ 
 																				$m1 = $nilai_sintetisitem->M_sintesis;
-																				echo $nilai_sintetisitem->M_sintesis;
+																				echo round($nilai_sintetisitem->M_sintesis,3);
 																			} 
 																		  endforeach; ?>
 																</td>
@@ -472,7 +472,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																	<?php foreach ($nilai_sintetis as $nilai_sintetisitem): 
 																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria2->Id){
 																				$m2 =  $nilai_sintetisitem->M_sintesis;
-																				echo $nilai_sintetisitem->M_sintesis;
+																				echo round($nilai_sintetisitem->M_sintesis,3);
 																			} 
 																		  endforeach;?>
 																	</td>
@@ -493,7 +493,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																		foreach ($nilai_sintetis as $nilai_sintetisitem): 
 																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria->Id){ 
 																				$l1 = $nilai_sintetisitem->L_sintesis;
-																				echo $nilai_sintetisitem->L_sintesis;
+																				echo round($nilai_sintetisitem->L_sintesis,3);
 																			} 
 																		endforeach; 
 																	}
@@ -507,7 +507,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																		foreach ($nilai_sintetis as $nilai_sintetisitem): 
 																			if($nilai_sintetisitem->IdKriteria1 == $mstr_kriteria2->Id){
 																				$u2 = $nilai_sintetisitem->U_sintesis;
-																				echo $nilai_sintetisitem->U_sintesis;
+																				echo round($nilai_sintetisitem->U_sintesis,3);
 																			} 
 																		endforeach; 
 																	}
@@ -534,7 +534,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																<td>
 																	<?php 
 																	if($value_comparasion <1){
-																		$degree3 = ($l1-$u2)/(($m2-$u2)-($m1-$l1));
+																		$degree3 = round(($l1-$u2)/(($m2-$u2)-($m1-$l1)),3);
 																		echo $degree3;
 																	}
 																	else{
@@ -545,7 +545,7 @@ License: You must have a valid license purchased only from themeforest(the above
 																</td>
 																<td>
 																<?php 
-																$sum_of_degree = $degree1+$degree2+$degree3;
+																$sum_of_degree = round($degree1+$degree2+$degree3,3);
 																echo $sum_of_degree;
 																if($value_comparasion_1 > 0){
 																	$value_comparasion_1 = ($value_comparasion_1<=$sum_of_degree)?$value_comparasion_1:$sum_of_degree;
@@ -602,7 +602,7 @@ License: You must have a valid license purchased only from themeforest(the above
 											<td><?php echo  "K".$mstr_kriteria->Id; ?> </td>
 											<td><?php echo $min_sum_of_degree[$i]?> </td>
 											<td><?php echo $tot_min_sum_of_degree?></td>
-											<td class="tdvalue"><?php echo $min_sum_of_degree[$i]/$tot_min_sum_of_degree?></td>
+											<td class="tdvalue"><?php echo round($min_sum_of_degree[$i]/$tot_min_sum_of_degree,3);?></td>
 										</tr>										 		
 										<?php
 										$i++;
